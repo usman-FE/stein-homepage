@@ -4,13 +4,6 @@
 
 @layer base {
   html {
-    font-family: 'Be Vietnam Pro', sans-serif;
-  }
-}
-
-/* PRIMARY BUTTON */
-@layer components {
-  .btn-primary {
-    @apply py-3 px-8 bg-BrightRed text-white font-medium rounded-full shadow-md hover:opacity-75 focus:outline-none transition-all;
+    font-family: 'IBM Plex Serif', serif;
   }
 }
