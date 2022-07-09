@@ -1,0 +1,18 @@
+{
+  "name": "stein-homepage",
+  "version": "1.0.0",
+  "description": "Homepage for Stein website",
+  "main": "index.html",
+  "scripts": {
+    "build": "npx tailwindcss -i ./src/style.css -o ./dist/main.css",
+    "start": "npx tailwindcss -i ./src/style.css -o ./dist/main.css --watch"
+  },
+  "author": "Usman",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.1.5"
+  },
+  "dependencies": {
+    "alpinejs": "^3.10.2"
+  }
+}
