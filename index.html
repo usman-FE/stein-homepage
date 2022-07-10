@@ -23,7 +23,10 @@
   </head>
   <body>
     <!-- HEADER SECTION START -->
-    <header x-data="{isOpen: false}">
+    <header
+      x-data="{isOpen: false, isModalOpen: false}
+    "
+    >
       <!-- HEADER MOBILE -->
       <div
         class="container mx-auto px-6 h-16 flex flex-row items-center justify-between lg:hidden"
@@ -46,7 +49,13 @@
             >Stein</a
           >
         </div>
-        <a href="#">
+        <a
+          href="#"
+          @click="isModalOpen = true
+          $nextTick(() => $refs.modalSearchbar.focus())
+          "
+          @keydown.escape.window="isModalOpen = false"
+        >
           <svg
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
@@ -936,7 +945,13 @@
               </nav>
               <!-- SEARCH AND SIDEBAR BUTTONS -->
               <div>
-                <button class="outline-none">
+                <button
+                  class="outline-none"
+                  @click="isModalOpen = true;
+                  $nextTick(() => $refs.modalSearchbar.focus());
+                "
+                  @keydown.escape.window="isModalOpen = false"
+                >
                   <svg
                     version="1.1"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1509,6 +1524,32 @@
         </div>
       </aside>
       <!-- SIDEBAR END -->
+      <!-- SEARCH MODAL START -->
+      <div
+        class="fixed inset-0 bg-black/90 flex justify-center items-center"
+        x-show="isModalOpen"
+        x-transition.opacity
+      >
+        <div
+          class="container max-w-lg lg:max-w-3xl m-auto px-6 font-['Roboto']"
+        >
+          <form class="w-full">
+            <input
+              type="search"
+              name="search"
+              id="search"
+              placeholder="Search..."
+              autocomplete="off"
+              class="block w-full bg-transparent text-white border-b-2 border-white px-0 py-2 text-2xl outline-none border-accent mb-2 focus:border-primarySky"
+              x-ref="modalSearchbar"
+            />
+            <p class="text-sm text-right font-medium text-white/70">
+              Hit enter to search or ESC to close.
+            </p>
+          </form>
+        </div>
+      </div>
+      <!-- SEARCH MODAL END -->
     </header>
     <!-- HEADER SECTION END -->
   </body>
