@@ -1581,6 +1581,7 @@
       }
       }"
     >
+      <!-- copy -->
       <div
         class="bg-no-repeat bg-cover bg-center flex justify-center items-center transition-all duration-500"
         :class="slide === 'slide1' ? `bg-[url('/images/hero-img-2.jpg')]` : `bg-[url('/images/hero-img-1.jpg')]`"
@@ -1846,11 +1847,86 @@
           </p>
         </div>
         <!-- SECTION CONTENT -->
-        <div class="overflow-hidden">
+        <div
+          class="overflow-hidden"
+          x-data="{
+            init(){
+                     this.width <= 768 ? this.numberOfSlides = 1 :
+                     this.width > 768 && this.width <= 1024 ? this.numberOfSlides = 2 :
+                     this.numberOfSlides = 4;
+                     this.numberOfBullets = Math.ceil(this.numberOfitems / this.numberOfSlides);
+                    
+                     $nextTick(() => {
+                     Array.from($refs.pagination.children)[1].classList.add('bg-black/90');
+                     Array.from($refs.pagination.children)[1].classList.remove('bg-black/25');
+                    });
+                },
+            numberOfBullets: '',
+            numberOfitems: Array.from(document.querySelector('.slider').children).length,
+            width: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+            numberOfSlides: '',
+            touchstartX: 0,
+            touchstartY: 0,
+            touchendX: 0,
+            touchendY: 0,
+            currentSlide: 0,
+            swipperPaginationClass: function () {
+              Array.from($refs.pagination.children).forEach(el => {
+                      el.classList.remove('bg-black/90');
+                      el.classList.add('bg-black/25');
+                      if (el.id.substr(2) === $refs.sliderContainer.dataset.id) {
+                        el.classList.add('bg-black/90');
+                        el.classList.remove('bg-black/25');
+                      }
+                });
+            },
+            handleGesture: function(){
+              if (this.touchendX < this.touchstartX) {
+                if(this.currentSlide === this.numberOfBullets - 1) this.currentSlide = -1;
+                this.currentSlide++;
+                $refs.sliderContainer.dataset.id = this.currentSlide + 1;
+                $refs.sliderContainer.style.transform = `translateX(-${(this.currentSlide) * 100}%)`
+                this.swipperPaginationClass();
+              }
+              if (this.touchendX > this.touchstartX) {
+                if(this.currentSlide === 0) this.currentSlide = this.numberOfBullets;
+                $refs.sliderContainer.dataset.id = this.currentSlide;
+                this.currentSlide--;
+                $refs.sliderContainer.style.transform = `translateX(-${(this.currentSlide) * 100}%)`
+                this.swipperPaginationClass();
+              }
+            }    
+          }"
+        >
           <!-- SLIDES PARENT CONTAINER -->
-          <div>
+
+          <!-- PASTE -->
+          <div
+            @mousedown.passive="
+              touchstartY = $event.screenY;
+              touchstartX = $event.screenX;
+            "
+            @touchstart.passive="
+              touchstartX = $event.changedTouches[0].screenX;
+              touchstartY = $event.changedTouches[0].screenY;
+            "
+            @mouseup.passive="
+              touchendX = $event.screenX;
+              touchendY = $event.screenY;
+              handleGesture();
+            "
+            @touchend.passive="
+              touchendX = $event.changedTouches[0].screenX;
+              touchendY = $event.changedTouches[0].screenY;
+              handleGesture();
+            "
+          >
             <!-- SLIDES -->
-            <div class="flex">
+            <div
+              data-id="1"
+              class="flex slider transition-all duration-300 select-none"
+              x-ref="sliderContainer"
+            >
               <!-- SLIDE -->
               <div class="w-full h-auto px-4 mb-8 md:w-1/2 lg:w-1/4 shrink-0">
                 <article class="bg-white flex flex-col relative h-full">
@@ -1895,6 +1971,150 @@
                       </span>
                       <!-- STATS -->
                       <span> 2.4K views </span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <!-- SLIDE -->
+              <div class="w-full h-auto px-4 mb-8 md:w-1/2 lg:w-1/4 shrink-0">
+                <article class="bg-white flex flex-col relative h-full">
+                  <!-- THUMBNAIL -->
+                  <div class="relative aspect-video">
+                    <a href="#" class="absolute inset-0">
+                      <img
+                        src="images/slide2.jpg"
+                        class="h-full w-full object-cover"
+                        alt="slide2"
+                        loading="lazy"
+                      />
+                    </a>
+                  </div>
+                  <!-- SLIDE CONTENT -->
+                  <div class="flex-1 p-6 md:p-8 text-left lg:p-6">
+                    <!-- CAPTION -->
+                    <div class="mb-2">
+                      <a
+                        href="#"
+                        class="text-primarySky hover:underline uppercase font-roboto text-xs font-medium tracking-wide"
+                      >
+                        Entertainment
+                      </a>
+                    </div>
+                    <!-- HEADING -->
+                    <h3 class="text-2xl lg:text-lg mb-0">
+                      <a
+                        href="#"
+                        class="hover:text-black/60 font-bold leading-[0rem]"
+                      >
+                        Few Facts About Streaming and Music Creation
+                      </a>
+                    </h3>
+                    <!-- META -->
+                    <div class="text-sm mt-3.5 text-black/50 font-roboto">
+                      <!-- DATE -->
+                      <span
+                        class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
+                      >
+                        May 12, 2020
+                      </span>
+                      <!-- STATS -->
+                      <span> 1.4K views </span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <!-- SLIDE -->
+              <div class="w-full h-auto px-4 mb-8 md:w-1/2 lg:w-1/4 shrink-0">
+                <article class="bg-white flex flex-col relative h-full">
+                  <!-- THUMBNAIL -->
+                  <div class="relative aspect-video">
+                    <a href="#" class="absolute inset-0">
+                      <img
+                        src="images/slide3.jpg"
+                        class="h-full w-full object-cover"
+                        alt="slide3"
+                        loading="lazy"
+                      />
+                    </a>
+                  </div>
+                  <!-- SLIDE CONTENT -->
+                  <div class="flex-1 p-6 md:p-8 text-left lg:p-6">
+                    <!-- CAPTION -->
+                    <div class="mb-2">
+                      <a
+                        href="#"
+                        class="text-primarySky hover:underline uppercase font-roboto text-xs font-medium tracking-wide"
+                      >
+                        Entertainment
+                      </a>
+                    </div>
+                    <!-- HEADING -->
+                    <h3 class="text-2xl lg:text-lg mb-0">
+                      <a
+                        href="#"
+                        class="hover:text-black/60 font-bold leading-[0rem]"
+                      >
+                        Hacking a Cheap $99 Camera to Do More Than It’s Worth
+                      </a>
+                    </h3>
+                    <!-- META -->
+                    <div class="text-sm mt-3.5 text-black/50 font-roboto">
+                      <!-- DATE -->
+                      <span
+                        class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
+                      >
+                        May 01, 2022
+                      </span>
+                      <!-- STATS -->
+                      <span> 5.4K views </span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <!-- SLIDE -->
+              <div class="w-full h-auto px-4 mb-8 md:w-1/2 lg:w-1/4 shrink-0">
+                <article class="bg-white flex flex-col relative h-full">
+                  <!-- THUMBNAIL -->
+                  <div class="relative aspect-video">
+                    <a href="#" class="absolute inset-0">
+                      <img
+                        src="images/slide4.jpg"
+                        class="h-full w-full object-cover"
+                        alt="slide4"
+                        loading="lazy"
+                      />
+                    </a>
+                  </div>
+                  <!-- SLIDE CONTENT -->
+                  <div class="flex-1 p-6 md:p-8 text-left lg:p-6">
+                    <!-- CAPTION -->
+                    <div class="mb-2">
+                      <a
+                        href="#"
+                        class="text-primarySky hover:underline uppercase font-roboto text-xs font-medium tracking-wide"
+                      >
+                        Lifestyle
+                      </a>
+                    </div>
+                    <!-- HEADING -->
+                    <h3 class="text-2xl lg:text-lg mb-0">
+                      <a
+                        href="#"
+                        class="hover:text-black/60 font-bold leading-[0rem]"
+                      >
+                        Physical Exercise to Boost Your Brain and Stamina
+                      </a>
+                    </h3>
+                    <!-- META -->
+                    <div class="text-sm mt-3.5 text-black/50 font-roboto">
+                      <!-- DATE -->
+                      <span
+                        class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
+                      >
+                        June 22, 2019
+                      </span>
+                      <!-- STATS -->
+                      <span> 5.1K views </span>
                     </div>
                   </div>
                 </article>
@@ -1954,9 +2174,9 @@
                   <div class="relative aspect-video">
                     <a href="#" class="absolute inset-0">
                       <img
-                        src="images/slide1.jpg"
+                        src="images/slide3.jpg"
                         class="h-full w-full object-cover"
-                        alt="slide1"
+                        alt="slide3"
                         loading="lazy"
                       />
                     </a>
@@ -1969,7 +2189,7 @@
                         href="#"
                         class="text-primarySky hover:underline uppercase font-roboto text-xs font-medium tracking-wide"
                       >
-                        Lifestyle
+                        Entertainment
                       </a>
                     </div>
                     <!-- HEADING -->
@@ -1978,7 +2198,7 @@
                         href="#"
                         class="hover:text-black/60 font-bold leading-[0rem]"
                       >
-                        The Real Reason Why Money Can’t Buy You Freedom
+                        Hacking a Cheap $99 Camera to Do More Than It’s Worth
                       </a>
                     </h3>
                     <!-- META -->
@@ -1987,10 +2207,10 @@
                       <span
                         class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
                       >
-                        May 02, 2019
+                        May 01, 2022
                       </span>
                       <!-- STATS -->
-                      <span> 2.4K views </span>
+                      <span> 5.4K views </span>
                     </div>
                   </div>
                 </article>
@@ -2002,9 +2222,9 @@
                   <div class="relative aspect-video">
                     <a href="#" class="absolute inset-0">
                       <img
-                        src="images/slide1.jpg"
+                        src="images/slide4.jpg"
                         class="h-full w-full object-cover"
-                        alt="slide1"
+                        alt="slide4"
                         loading="lazy"
                       />
                     </a>
@@ -2026,7 +2246,7 @@
                         href="#"
                         class="hover:text-black/60 font-bold leading-[0rem]"
                       >
-                        The Real Reason Why Money Can’t Buy You Freedom
+                        Physical Exercise to Boost Your Brain and Stamina
                       </a>
                     </h3>
                     <!-- META -->
@@ -2035,10 +2255,10 @@
                       <span
                         class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
                       >
-                        May 02, 2019
+                        June 22, 2019
                       </span>
                       <!-- STATS -->
-                      <span> 2.4K views </span>
+                      <span> 5.1K views </span>
                     </div>
                   </div>
                 </article>
@@ -2050,9 +2270,57 @@
                   <div class="relative aspect-video">
                     <a href="#" class="absolute inset-0">
                       <img
-                        src="images/slide1.jpg"
+                        src="images/slide2.jpg"
                         class="h-full w-full object-cover"
-                        alt="slide1"
+                        alt="slide2"
+                        loading="lazy"
+                      />
+                    </a>
+                  </div>
+                  <!-- SLIDE CONTENT -->
+                  <div class="flex-1 p-6 md:p-8 text-left lg:p-6">
+                    <!-- CAPTION -->
+                    <div class="mb-2">
+                      <a
+                        href="#"
+                        class="text-primarySky hover:underline uppercase font-roboto text-xs font-medium tracking-wide"
+                      >
+                        Entertainment
+                      </a>
+                    </div>
+                    <!-- HEADING -->
+                    <h3 class="text-2xl lg:text-lg mb-0">
+                      <a
+                        href="#"
+                        class="hover:text-black/60 font-bold leading-[0rem]"
+                      >
+                        Few Facts About Streaming and Music Creation
+                      </a>
+                    </h3>
+                    <!-- META -->
+                    <div class="text-sm mt-3.5 text-black/50 font-roboto">
+                      <!-- DATE -->
+                      <span
+                        class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
+                      >
+                        May 12, 2020
+                      </span>
+                      <!-- STATS -->
+                      <span> 1.4K views </span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <!-- SLIDE -->
+              <div class="w-full h-auto px-4 mb-8 md:w-1/2 lg:w-1/4 shrink-0">
+                <article class="bg-white flex flex-col relative h-full">
+                  <!-- THUMBNAIL -->
+                  <div class="relative aspect-video">
+                    <a href="#" class="absolute inset-0">
+                      <img
+                        src="images/slide4.jpg"
+                        class="h-full w-full object-cover"
+                        alt="slide4"
                         loading="lazy"
                       />
                     </a>
@@ -2074,7 +2342,7 @@
                         href="#"
                         class="hover:text-black/60 font-bold leading-[0rem]"
                       >
-                        The Real Reason Why Money Can’t Buy You Freedom
+                        Physical Exercise to Boost Your Brain and Stamina
                       </a>
                     </h3>
                     <!-- META -->
@@ -2083,10 +2351,106 @@
                       <span
                         class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
                       >
-                        May 02, 2019
+                        June 22, 2019
                       </span>
                       <!-- STATS -->
-                      <span> 2.4K views </span>
+                      <span> 5.1K views </span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <!-- SLIDE -->
+              <div class="w-full h-auto px-4 mb-8 md:w-1/2 lg:w-1/4 shrink-0">
+                <article class="bg-white flex flex-col relative h-full">
+                  <!-- THUMBNAIL -->
+                  <div class="relative aspect-video">
+                    <a href="#" class="absolute inset-0">
+                      <img
+                        src="images/slide3.jpg"
+                        class="h-full w-full object-cover"
+                        alt="slide3"
+                        loading="lazy"
+                      />
+                    </a>
+                  </div>
+                  <!-- SLIDE CONTENT -->
+                  <div class="flex-1 p-6 md:p-8 text-left lg:p-6">
+                    <!-- CAPTION -->
+                    <div class="mb-2">
+                      <a
+                        href="#"
+                        class="text-primarySky hover:underline uppercase font-roboto text-xs font-medium tracking-wide"
+                      >
+                        Entertainment
+                      </a>
+                    </div>
+                    <!-- HEADING -->
+                    <h3 class="text-2xl lg:text-lg mb-0">
+                      <a
+                        href="#"
+                        class="hover:text-black/60 font-bold leading-[0rem]"
+                      >
+                        Hacking a Cheap $99 Camera to Do More Than It’s Worth
+                      </a>
+                    </h3>
+                    <!-- META -->
+                    <div class="text-sm mt-3.5 text-black/50 font-roboto">
+                      <!-- DATE -->
+                      <span
+                        class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
+                      >
+                        May 01, 2022
+                      </span>
+                      <!-- STATS -->
+                      <span> 5.4K views </span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <!-- SLIDE -->
+              <div class="w-full h-auto px-4 mb-8 md:w-1/2 lg:w-1/4 shrink-0">
+                <article class="bg-white flex flex-col relative h-full">
+                  <!-- THUMBNAIL -->
+                  <div class="relative aspect-video">
+                    <a href="#" class="absolute inset-0">
+                      <img
+                        src="images/slide3.jpg"
+                        class="h-full w-full object-cover"
+                        alt="slide3"
+                        loading="lazy"
+                      />
+                    </a>
+                  </div>
+                  <!-- SLIDE CONTENT -->
+                  <div class="flex-1 p-6 md:p-8 text-left lg:p-6">
+                    <!-- CAPTION -->
+                    <div class="mb-2">
+                      <a
+                        href="#"
+                        class="text-primarySky hover:underline uppercase font-roboto text-xs font-medium tracking-wide"
+                      >
+                        Entertainment
+                      </a>
+                    </div>
+                    <!-- HEADING -->
+                    <h3 class="text-2xl lg:text-lg mb-0">
+                      <a
+                        href="#"
+                        class="hover:text-black/60 font-bold leading-[0rem]"
+                      >
+                        Hacking a Cheap $99 Camera to Do More Than It’s Worth
+                      </a>
+                    </h3>
+                    <!-- META -->
+                    <div class="text-sm mt-3.5 text-black/50 font-roboto">
+                      <!-- DATE -->
+                      <span
+                        class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
+                      >
+                        May 01, 2022
+                      </span>
+                      <!-- STATS -->
+                      <span> 5.4K views </span>
                     </div>
                   </div>
                 </article>
@@ -2095,9 +2459,25 @@
           </div>
           <!-- SLIDE'S PAGINATION -->
           <div class="flex justify-center items-center mb-16">
-            <div class="flex gap-x-2">
-              <span class="w-2 h-2 rounded-full bg-black cursor-pointer"></span>
-              <span class="w-2 h-2 rounded-full bg-black cursor-pointer"></span>
+            <div class="flex gap-x-2" x-ref="pagination">
+              <template x-for="i in numberOfBullets">
+                <span
+                  class="w-2 h-2 rounded-full bg-black/25 cursor-pointer"
+                  :id="$id('a')"
+                  @click="
+                    $refs.sliderContainer.style.transform = `translateX(-${(Array.from($el.parentElement.children).indexOf($el) - 1) * 100}%)`
+                    $refs.sliderContainer.dataset.id = +$el.id.substr(2);
+                    currentSlide = $refs.sliderContainer.dataset.id - 1;
+                    Array.from($el.parentElement.children).forEach(el => {
+                      el.classList.remove('bg-black/90');
+                      el.classList.add('bg-black/25');
+                    })
+                    
+                    $el.classList.remove('bg-black/25');
+                    $el.classList.add('bg-black/90');
+                  "
+                ></span>
+              </template>
             </div>
           </div>
         </div>
