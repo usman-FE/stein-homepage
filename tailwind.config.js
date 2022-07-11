@@ -21,6 +21,16 @@ module.exports = {
           return `:merge(.group-${group}):hover &`
         })
       })
+    }),
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        '.backface-visible': {
+          'backface-visibility': 'visible',
+        },
+        '.backface-hidden': {
+          'backface-visibility': 'hidden',
+        }
+      })
     })
   ]
 };

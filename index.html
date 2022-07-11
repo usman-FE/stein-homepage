@@ -1553,29 +1553,97 @@
     </header>
     <!-- HEADER SECTION END -->
     <!-- HERO SECTION START -->
-    <section>
+    <!-- "bg-[url('/images/hero-img-2.jpg')]" -->
+    <section
+      x-data="{
+      slide: 'slide1',
+      timerInt: '',
+      touchstartX: 0,
+      touchstartY: 0,
+      touchendX: 0,
+      touchendY: 0,
+      handleGesture: function(){
+         if (this.touchendX < this.touchstartX) {
+          this.timer();
+          }
+          if (this.touchendX > this.touchstartX) {
+          this.timer();
+          }
+      },
+      timer: function(){
+        if (this.slide === 'slide1') {
+              this.slide = 'slide2'
+        }else{
+              this.slide = 'slide1'
+           }
+      },
+      sliderIntervel: function(){
+        this.timerInt = setInterval(() => {
+          this.timer();
+        }, 10000);
+      }
+      }"
+    >
       <div
-        class="bg-[url('/images/hero-img-2.jpg')] bg-no-repeat bg-cover bg-center flex justify-center items-center"
+        class="bg-no-repeat bg-cover bg-center flex justify-center items-center transition-all duration-500"
+        :class="slide === 'slide1' ? `bg-[url('/images/hero-img-2.jpg')]` : `bg-[url('/images/hero-img-1.jpg')]`"
+        @mousedown.passive="
+          touchstartY = $event.screenY;
+          touchstartX = $event.screenX;
+        "
+        @touchstart.passive="
+          touchstartX = $event.changedTouches[0].screenX;
+          touchstartY = $event.changedTouches[0].screenY;
+        "
+        @mouseup.passive="
+          touchendX = $event.screenX;
+          touchendY = $event.screenY;
+          clearInterval(timerInt);
+          sliderIntervel();
+          handleGesture();
+        "
+        @touchend.passive="
+          touchendX = $event.changedTouches[0].screenX;
+          touchendY = $event.changedTouches[0].screenY;
+          clearInterval(timerInt);
+          sliderIntervel();
+          handleGesture();
+        "
       >
         <div class="h-[93vh] lg:h-full w-full bg-black/30">
           <div
             class="container px-8 xl:px-14 h-full relative py-10 lg:py-14 mx-auto"
           >
             <div class="flex h-full">
-              <div class="flex-1 flex flex-col justify-between">
+              <div class="flex-1 flex flex-col">
                 <!-- FEATURED -->
                 <div
                   class="text-base text-strong mb-10 font-['roboto'] text-white"
                 >
                   <span
                     class="w-10 h-10 bg-primarySky inline-flex items-center justify-center"
+                    x-show="slide === 'slide1'"
                     >01</span
+                  >
+                  <span
+                    class="w-10 h-10 bg-primarySky inline-flex items-center justify-center"
+                    x-show="slide === 'slide2'"
+                    >02</span
                   >
                   <span class="ml-1">— Featured</span>
                 </div>
                 <!-- HERO CONTENT -->
-                <div class="lg:pr-10 mb-8 lg:mb-14">
-                  <div>
+                <div
+                  class="lg:pr-10 mb-8 lg:mb-14 mt-auto overflow-hidden relative backface-hidden"
+                  x-init="
+                  sliderIntervel();
+                 "
+                >
+                  <!-- CONTENT 1 -->
+                  <div
+                    class="transition-all duration-500 absolute"
+                    :class="{'-translate-y-10 opacity-0 invisible' : slide === 'slide2'}"
+                  >
                     <!-- META DESCRIPTION -->
                     <div
                       class="text-xs text-strong mb-4 font-['roboto'] text-white uppercase"
@@ -1610,6 +1678,69 @@
                       <!-- STATS -->
                       <span> 2.4K views </span>
                     </div>
+                  </div>
+                  <!-- CONTENT 2 -->
+                  <div
+                    class="transition-all duration-500"
+                    :class="{'translate-y-10 opacity-0 invisible' : slide === 'slide1'}"
+                  >
+                    <!-- META DESCRIPTION -->
+                    <div
+                      class="text-xs text-strong mb-4 font-['roboto'] text-white uppercase"
+                    >
+                      Travel
+                    </div>
+                    <!-- HERO HEADING -->
+                    <h1
+                      class="text-3xl leading-tight lg:text-[42px] font-bold text-white mb-0 hover:opacity-75"
+                    >
+                      <a href="#">
+                        Colors & Sound of San Miguel de Allende, Mexico
+                      </a>
+                    </h1>
+                    <!-- POST META -->
+                    <div class="text-sm mt-5 text-white/70 font-['roboto']">
+                      <!-- AUTHOR -->
+                      <span
+                        class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-white/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
+                      >
+                        <span>By</span>
+                        <a href="#" class="text-white hover:text-primarySky"
+                          >Elijah Stein</a
+                        >
+                      </span>
+                      <!-- DATE -->
+                      <span
+                        class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-white/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
+                      >
+                        April 28, 2020
+                      </span>
+                      <!-- STATS -->
+                      <span> 9.4K views </span>
+                    </div>
+                  </div>
+                </div>
+                <!-- HERO PAGINATION -->
+                <div class="container mx-auto">
+                  <div class="flex gap-x-2">
+                    <span
+                      class="w-2 h-2 rounded-full bg-white cursor-pointer"
+                      @click="
+                      slide = 'slide1';
+                      clearInterval(timerInt);
+                      sliderIntervel();
+                      "
+                      :class="{'!bg-white/50 translate-x-0' : slide !== 'slide1'}"
+                    ></span>
+                    <span
+                      class="w-2 h-2 rounded-full bg-white cursor-pointer"
+                      @click="
+                      slide = 'slide2'
+                      clearInterval(timerInt);
+                      sliderIntervel();
+                      "
+                      :class="{'!bg-white/50 translate-x-0' : slide !== 'slide2'}"
+                    ></span>
                   </div>
                 </div>
               </div>
