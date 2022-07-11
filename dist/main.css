@@ -741,6 +741,26 @@ html {
   margin-right: 1rem;
 }
 
+.mb-16 {
+  margin-bottom: 4rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.-mt-3\.5 {
+  margin-top: -0.875rem;
+}
+
+.-mt-3 {
+  margin-top: -0.75rem;
+}
+
+.mt-3\.5 {
+  margin-top: 0.875rem;
+}
+
 .block {
   display: block;
 }
@@ -869,41 +889,6 @@ html {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.-translate-y-40 {
-  --tw-translate-y: -10rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.translate-y-40 {
-  --tw-translate-y: 10rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.translate-x-0 {
-  --tw-translate-x: 0px;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.-translate-y-20 {
-  --tw-translate-y: -5rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.translate-y-20 {
-  --tw-translate-y: 5rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.-translate-y-5 {
-  --tw-translate-y: -1.25rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.translate-y-5 {
-  --tw-translate-y: 1.25rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
 .-translate-y-10 {
   --tw-translate-y: -2.5rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -911,6 +896,11 @@ html {
 
 .translate-y-10 {
   --tw-translate-y: 2.5rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.translate-x-0 {
+  --tw-translate-x: 0px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -1082,6 +1072,11 @@ html {
   background-color: rgb(0 0 0 / 0.6);
 }
 
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
 .bg-\[url\(\'\/images\/hero-img-2\.jpg\'\)\] {
   background-image: url('/images/hero-img-2.jpg');
 }
@@ -1213,6 +1208,14 @@ html {
   padding-left: 1.5rem;
 }
 
+.pt-10 {
+  padding-top: 2.5rem;
+}
+
+.text-left {
+  text-align: left;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1221,16 +1224,16 @@ html {
   text-align: right;
 }
 
-.font-\[\'Roboto\'\] {
-  font-family: 'Roboto';
+.font-roboto {
+  font-family: Roboto, sans-serif;
 }
 
 .font-\[\'IBM\'\] {
   font-family: 'IBM';
 }
 
-.font-\[\'roboto\'\] {
-  font-family: 'roboto';
+.font-IBM {
+  font-family: "IBM Plex Serif", serif;
 }
 
 .text-2xl {
@@ -1291,12 +1294,60 @@ html {
   line-height: 1.25;
 }
 
+.leading-snug {
+  line-height: 1.375;
+}
+
+.leading-none {
+  line-height: 1;
+}
+
+.leading-10 {
+  line-height: 2.5rem;
+}
+
+.leading-\[12px\] {
+  line-height: 12px;
+}
+
+.leading-\[2px\] {
+  line-height: 2px;
+}
+
+.leading-\[-2px\] {
+  line-height: -2px;
+}
+
+.leading-\[-2rem\] {
+  line-height: -2rem;
+}
+
+.leading-\[2rem\] {
+  line-height: 2rem;
+}
+
+.leading-\[12rem\] {
+  line-height: 12rem;
+}
+
+.leading-\[-92rem\] {
+  line-height: -92rem;
+}
+
+.leading-\[0rem\] {
+  line-height: 0rem;
+}
+
 .tracking-\[\.05em\] {
   letter-spacing: .05em;
 }
 
 .tracking-normal {
   letter-spacing: 0em;
+}
+
+.tracking-wide {
+  letter-spacing: 0.025em;
 }
 
 .text-black\/80 {
@@ -1324,6 +1375,26 @@ html {
 
 .text-white\/70 {
   color: rgb(255 255 255 / 0.7);
+}
+
+.text-white\/40 {
+  color: rgb(255 255 255 / 0.4);
+}
+
+.text-black\/40 {
+  color: rgb(0 0 0 / 0.4);
+}
+
+.text-black\/70 {
+  color: rgb(0 0 0 / 0.7);
+}
+
+.text-black\/60 {
+  color: rgb(0 0 0 / 0.6);
+}
+
+.text-black\/50 {
+  color: rgb(0 0 0 / 0.5);
 }
 
 .opacity-60 {
@@ -1369,11 +1440,6 @@ html {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
-.backface-hidden {
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-}
-
 .after\:top-1\/2::after {
   content: var(--tw-content);
   top: 50%;
@@ -1416,6 +1482,11 @@ html {
   background-color: rgb(255 255 255 / 0.5);
 }
 
+.after\:bg-black\/50::after {
+  content: var(--tw-content);
+  background-color: rgb(0 0 0 / 0.5);
+}
+
 .hover\:border-primarySky:hover {
   --tw-border-opacity: 1;
   border-color: rgb(66 153 225 / var(--tw-border-opacity));
@@ -1428,6 +1499,14 @@ html {
 .hover\:text-primarySky:hover {
   --tw-text-opacity: 1;
   color: rgb(66 153 225 / var(--tw-text-opacity));
+}
+
+.hover\:text-black\/70:hover {
+  color: rgb(0 0 0 / 0.7);
+}
+
+.hover\:text-black\/60:hover {
+  color: rgb(0 0 0 / 0.6);
 }
 
 .hover\:underline:hover {
@@ -1484,6 +1563,10 @@ html {
     margin-bottom: 2rem;
   }
 
+  .md\:w-1\/2 {
+    width: 50%;
+  }
+
   .md\:max-w-sm {
     max-width: 24rem;
   }
@@ -1510,6 +1593,10 @@ html {
     height: 100%;
   }
 
+  .lg\:w-1\/4 {
+    width: 25%;
+  }
+
   .lg\:max-w-3xl {
     max-width: 48rem;
   }
@@ -1518,17 +1605,35 @@ html {
     background-color: transparent;
   }
 
+  .lg\:p-6 {
+    padding: 1.5rem;
+  }
+
   .lg\:py-14 {
     padding-top: 3.5rem;
     padding-bottom: 3.5rem;
+  }
+
+  .lg\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 
   .lg\:pr-10 {
     padding-right: 2.5rem;
   }
 
+  .lg\:pt-14 {
+    padding-top: 3.5rem;
+  }
+
   .lg\:text-\[42px\] {
     font-size: 42px;
+  }
+
+  .lg\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
 }
 
