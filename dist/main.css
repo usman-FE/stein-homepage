@@ -1075,8 +1075,8 @@ html {
   background-color: rgb(0 0 0 / 0.25);
 }
 
-.bg-\[url\(\'\.\.\/images\/showcase-img-1\.jpg\'\)\] {
-  background-image: url('../images/showcase-img-1.jpg');
+.bg-\[url\(\'\.\.\/images\/hero-img-2\.jpg\'\)\] {
+  background-image: url('../images/hero-img-2.jpg');
 }
 
 .bg-\[url\(\'\.\.\/images\/hero-img-1\.jpg\'\)\] {
