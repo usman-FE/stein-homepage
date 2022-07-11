@@ -1091,6 +1091,10 @@ html {
   background-image: url('../images/hero-img-1.jpg');
 }
 
+.bg-\[url\(\'\.\.\/images\/showcase-img-1\.jpg\'\)\] {
+  background-image: url('../images/showcase-img-1.jpg');
+}
+
 .bg-cover {
   background-size: cover;
 }
