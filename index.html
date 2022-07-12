@@ -15,6 +15,7 @@
     />
 
     <link rel="stylesheet" href="./dist/main.css" />
+    <!-- ALPINE CORE -->
     <script
       defer
       src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"
@@ -78,7 +79,7 @@
             class="h-14 flex flex-row items-center justify-between container mx-auto px-8 xl:px-14"
           >
             <nav>
-              <ul class="flex flex-row font-roboto">
+              <ul class="flex flex-row font-roboto font-medium">
                 <li>
                   <a
                     href="#"
@@ -221,7 +222,7 @@
               </div>
               <!-- MENU ITEMS -->
               <nav class="h-full">
-                <ul class="flex flex-row h-full font-roboto">
+                <ul class="flex flex-row h-full font-roboto font-medium">
                   <li class="flex p-4 relative group">
                     <a
                       href="#"
@@ -2458,7 +2459,7 @@
             </div>
           </div>
           <!-- SLIDE'S PAGINATION -->
-          <div class="flex justify-center items-center mb-16">
+          <div class="flex justify-center items-center">
             <div class="flex gap-x-2" x-ref="pagination">
               <template x-for="i in numberOfBullets">
                 <span
@@ -2484,5 +2485,891 @@
       </div>
     </section>
     <!-- POPULAR POST SECTION END -->
+    <!-- MAIN SECTION START -->
+    <main class="py-12 lg:py-16 bg-zinc-50">
+      <section class="container mx-auto px-6 lg:px-8 xl:px-14">
+        <div class="flex flex-row flex-wrap -mx-4 -mb-8">
+          <!-- MAIN CONTENT SECTION -->
+          <div class="w-full px-4 lg:w-2/3">
+            <div class="mb-8">
+              <!-- MAIN CONTENT POSTS -->
+              <div class="-mx-4">
+                <div class="flex flex-row flex-wrap -mb-8">
+                  <!-- POST -->
+                  <div class="w-full h-auto px-4 mb-8 md:w-1/2 lg:w-1/2">
+                    <article class="bg-white flex flex-col relative h-full">
+                      <!-- THUMBNAIL -->
+                      <div class="relative aspect-video">
+                        <a href="#" class="block absolute inset-0">
+                          <img
+                            src="images/main-post-1.jpg"
+                            alt="main-post-1"
+                            class="h-full w-full object-cover"
+                            loading="lazy"
+                          />
+                        </a>
+                        <div class="absolute top-0 right-0 p-4 z-10">
+                          <span
+                            class="bg-primarySky text-white text-xs rounded-full font-roboto py-1 font-medium px-3"
+                            >Pinned</span
+                          >
+                        </div>
+                      </div>
+                      <!-- BODY -->
+                      <div class="flex-1 p-6 md:p-8 text-left lg:p-8">
+                        <div>
+                          <!-- CAPTION -->
+                          <div class="text-xs mb-2">
+                            <a
+                              href="#"
+                              class="text-primarySky font-bold font-roboto hover:underline uppercase"
+                              >Lifestyle</a
+                            >
+                          </div>
+                          <!-- HEADING -->
+                          <h3
+                            class="text-2xl lg:text-2xl mb-0 font-bold hover:opacity-75"
+                          >
+                            <a href="#"
+                              >How I Became Strong After a Lifetime of Being
+                              Bullied</a
+                            >
+                          </h3>
+                          <!-- META -->
+                          <div class="text-sm mt-4 text-black/50 font-roboto">
+                            <!-- DATE -->
+                            <span
+                              class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
+                            >
+                              May 01, 2022
+                            </span>
+                            <!-- STATS -->
+                            <span> 5.4K views </span>
+                          </div>
+                          <!-- POST BODY -->
+                          <div class="mt-4">
+                            <p class="mb-0 font-roboto text-black/60 leading-6">
+                              Faints contribution fifty specified appearing
+                              copyright reveal side third. Supply contributors
+                              did incur but no…
+                            </p>
+                            <p class="mb-0 mt-4">
+                              <a
+                                href="#"
+                                class="font-roboto text-sm font-bold hover:text-primarySky uppercase"
+                                >Read more &rarr;</a
+                              >
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                  <!-- POST -->
+                  <div class="w-full h-auto px-4 mb-8 md:w-1/2 lg:w-1/2">
+                    <article class="bg-white flex flex-col relative h-full">
+                      <!-- THUMBNAIL -->
+                      <div class="relative aspect-video">
+                        <a href="#" class="block absolute inset-0">
+                          <img
+                            src="images/main-post-2.jpg"
+                            alt="main-post-2"
+                            class="h-full w-full object-cover"
+                            loading="lazy"
+                          />
+                        </a>
+                        <div class="absolute top-0 right-0 p-4 z-10">
+                          <span
+                            class="bg-primarySky text-white text-xs rounded-full font-roboto py-1 font-medium px-3"
+                            >Pinned</span
+                          >
+                        </div>
+                      </div>
+                      <!-- BODY -->
+                      <div class="flex-1 p-6 md:p-8 text-left lg:p-8">
+                        <div>
+                          <!-- CAPTION -->
+                          <div class="text-xs mb-2">
+                            <a
+                              href="#"
+                              class="text-primarySky font-bold font-roboto hover:underline uppercase"
+                              >Entertainment
+                            </a>
+                          </div>
+                          <!-- HEADING -->
+                          <h3
+                            class="text-2xl lg:text-2xl mb-0 font-bold hover:opacity-75"
+                          >
+                            <a href="#"
+                              >Few Facts About Streaming and Music Creation</a
+                            >
+                          </h3>
+                          <!-- META -->
+                          <div class="text-sm mt-4 text-black/50 font-roboto">
+                            <!-- DATE -->
+                            <span
+                              class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
+                            >
+                              June 12, 2021
+                            </span>
+                            <!-- STATS -->
+                            <span> 2.4K views </span>
+                          </div>
+                          <!-- POST BODY -->
+                          <div class="mt-4">
+                            <p class="mb-0 font-roboto text-black/60 leading-6">
+                              Move posts avoid perhaps. Spiders above see wish
+                              comments purposes. Lot reason around no by…
+                            </p>
+                            <p class="mb-0 mt-4">
+                              <a
+                                href="#"
+                                class="font-roboto text-sm font-bold hover:text-primarySky uppercase"
+                                >Read more &rarr;</a
+                              >
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                  <!-- POST -->
+                  <div class="w-full h-auto px-4 mb-8 md:w-1/2 lg:w-1/2">
+                    <article class="bg-white flex flex-col relative h-full">
+                      <!-- THUMBNAIL -->
+                      <div class="relative aspect-video">
+                        <a href="#" class="block absolute inset-0">
+                          <img
+                            src="images/slide1.jpg"
+                            alt="main-post-3"
+                            class="h-full w-full object-cover"
+                            loading="lazy"
+                          />
+                        </a>
+                        <div class="absolute top-0 right-0 p-4 z-10">
+                          <!-- <span
+                            class="bg-primarySky text-white text-xs rounded-full font-roboto py-1 font-medium px-3"
+                            >Pinned</span
+                          > -->
+                        </div>
+                      </div>
+                      <!-- BODY -->
+                      <div class="flex-1 p-6 md:p-8 text-left lg:p-8">
+                        <div>
+                          <!-- CAPTION -->
+                          <div class="text-xs mb-2">
+                            <a
+                              href="#"
+                              class="text-primarySky font-bold font-roboto hover:underline uppercase"
+                              >Lifestyle
+                            </a>
+                          </div>
+                          <!-- HEADING -->
+                          <h3
+                            class="text-2xl lg:text-2xl mb-0 font-bold hover:opacity-75"
+                          >
+                            <a href="#"
+                              >The Real Reason Why Money Can’t Buy You
+                              Freedom</a
+                            >
+                          </h3>
+                          <!-- META -->
+                          <div class="text-sm mt-4 text-black/50 font-roboto">
+                            <!-- DATE -->
+                            <span
+                              class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
+                            >
+                              June 12, 2021
+                            </span>
+                            <!-- STATS -->
+                            <span> 2.4K views </span>
+                          </div>
+                          <!-- POST BODY -->
+                          <div class="mt-4">
+                            <p class="mb-0 font-roboto text-black/60 leading-6">
+                              Move posts avoid perhaps. Spiders above see wish
+                              comments purposes. Lot reason around no by…
+                            </p>
+                            <p class="mb-0 mt-4">
+                              <a
+                                href="#"
+                                class="font-roboto text-sm font-bold hover:text-primarySky uppercase"
+                                >Read more &rarr;</a
+                              >
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                  <!-- POST -->
+                  <div class="w-full h-auto px-4 mb-8 md:w-1/2 lg:w-1/2">
+                    <article class="bg-white flex flex-col relative h-full">
+                      <!-- THUMBNAIL -->
+                      <div class="relative aspect-video">
+                        <a href="#" class="block absolute inset-0">
+                          <img
+                            src="images/main-post-4.jpg"
+                            alt="main-post-4"
+                            class="h-full w-full object-cover"
+                            loading="lazy"
+                          />
+                        </a>
+                        <div class="absolute top-0 right-0 p-4 z-10">
+                          <!-- <span
+                            class="bg-primarySky text-white text-xs rounded-full font-roboto py-1 font-medium px-3"
+                            >Pinned</span
+                          > -->
+                        </div>
+                      </div>
+                      <!-- BODY -->
+                      <div class="flex-1 p-6 md:p-8 text-left lg:p-8">
+                        <div>
+                          <!-- CAPTION -->
+                          <div class="text-xs mb-2">
+                            <a
+                              href="#"
+                              class="text-primarySky font-bold font-roboto hover:underline uppercase"
+                              >Travel
+                            </a>
+                          </div>
+                          <!-- HEADING -->
+                          <h3
+                            class="text-2xl lg:text-2xl mb-0 font-bold hover:opacity-75"
+                          >
+                            <a href="#"
+                              >Australian Travel Advice: 10 Important Things To
+                              Know</a
+                            >
+                          </h3>
+                          <!-- META -->
+                          <div class="text-sm mt-4 text-black/50 font-roboto">
+                            <!-- DATE -->
+                            <span
+                              class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
+                            >
+                              June 22, 2022
+                            </span>
+                            <!-- STATS -->
+                            <span> 1.4K views </span>
+                          </div>
+                          <!-- POST BODY -->
+                          <div class="mt-4">
+                            <p class="mb-0 font-roboto text-black/60 leading-6">
+                              Help shouted touching causing posts is such
+                              specified incite adapt the audio had. Exceptional
+                              can’t…
+                            </p>
+                            <p class="mb-0 mt-4">
+                              <a
+                                href="#"
+                                class="font-roboto text-sm font-bold hover:text-primarySky uppercase"
+                                >Read more &rarr;</a
+                              >
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                  <!-- POST -->
+                  <div class="w-full h-auto px-4 mb-8 md:w-1/2 lg:w-1/2">
+                    <article class="bg-white flex flex-col relative h-full">
+                      <!-- THUMBNAIL -->
+                      <div class="relative aspect-video">
+                        <a href="#" class="block absolute inset-0">
+                          <img
+                            src="images/main-post-1.jpg"
+                            alt="main-post-3"
+                            class="h-full w-full object-cover"
+                            loading="lazy"
+                          />
+                        </a>
+                        <div class="absolute top-0 right-0 p-4 z-10">
+                          <!-- <span
+                            class="bg-primarySky text-white text-xs rounded-full font-roboto py-1 font-medium px-3"
+                            >Pinned</span
+                          > -->
+                        </div>
+                      </div>
+                      <!-- BODY -->
+                      <div class="flex-1 p-6 md:p-8 text-left lg:p-8">
+                        <div>
+                          <!-- CAPTION -->
+                          <div class="text-xs mb-2">
+                            <a
+                              href="#"
+                              class="text-primarySky font-bold font-roboto hover:underline uppercase"
+                              >Lifestyle
+                            </a>
+                          </div>
+                          <!-- HEADING -->
+                          <h3
+                            class="text-2xl lg:text-2xl mb-0 font-bold hover:opacity-75"
+                          >
+                            <a href="#"
+                              >The Real Reason Why Money Can’t Buy You
+                              Freedom</a
+                            >
+                          </h3>
+                          <!-- META -->
+                          <div class="text-sm mt-4 text-black/50 font-roboto">
+                            <!-- DATE -->
+                            <span
+                              class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
+                            >
+                              June 12, 2021
+                            </span>
+                            <!-- STATS -->
+                            <span> 2.4K views </span>
+                          </div>
+                          <!-- POST BODY -->
+                          <div class="mt-4">
+                            <p class="mb-0 font-roboto text-black/60 leading-6">
+                              Move posts avoid perhaps. Spiders above see wish
+                              comments purposes. Lot reason around no by…
+                            </p>
+                            <p class="mb-0 mt-4">
+                              <a
+                                href="#"
+                                class="font-roboto text-sm font-bold hover:text-primarySky uppercase"
+                                >Read more &rarr;</a
+                              >
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                  <!-- POST -->
+                  <div class="w-full h-auto px-4 mb-8 md:w-1/2 lg:w-1/2">
+                    <article class="bg-white flex flex-col relative h-full">
+                      <!-- THUMBNAIL -->
+                      <div class="relative aspect-video">
+                        <a href="#" class="block absolute inset-0">
+                          <img
+                            src="images/main-post-4.jpg"
+                            alt="main-post-4"
+                            class="h-full w-full object-cover"
+                            loading="lazy"
+                          />
+                        </a>
+                        <div class="absolute top-0 right-0 p-4 z-10">
+                          <!-- <span
+                            class="bg-primarySky text-white text-xs rounded-full font-roboto py-1 font-medium px-3"
+                            >Pinned</span
+                          > -->
+                        </div>
+                      </div>
+                      <!-- BODY -->
+                      <div class="flex-1 p-6 md:p-8 text-left lg:p-8">
+                        <div>
+                          <!-- CAPTION -->
+                          <div class="text-xs mb-2">
+                            <a
+                              href="#"
+                              class="text-primarySky font-bold font-roboto hover:underline uppercase"
+                              >Travel
+                            </a>
+                          </div>
+                          <!-- HEADING -->
+                          <h3
+                            class="text-2xl lg:text-2xl mb-0 font-bold hover:opacity-75"
+                          >
+                            <a href="#"
+                              >Australian Travel Advice: 10 Important Things To
+                              Know</a
+                            >
+                          </h3>
+                          <!-- META -->
+                          <div class="text-sm mt-4 text-black/50 font-roboto">
+                            <!-- DATE -->
+                            <span
+                              class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
+                            >
+                              June 22, 2022
+                            </span>
+                            <!-- STATS -->
+                            <span> 1.4K views </span>
+                          </div>
+                          <!-- POST BODY -->
+                          <div class="mt-4">
+                            <p class="mb-0 font-roboto text-black/60 leading-6">
+                              Help shouted touching causing posts is such
+                              specified incite adapt the audio had. Exceptional
+                              can’t…
+                            </p>
+                            <p class="mb-0 mt-4">
+                              <a
+                                href="#"
+                                class="font-roboto text-sm font-bold hover:text-primarySky uppercase"
+                                >Read more &rarr;</a
+                              >
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                  <!-- POST -->
+                  <div class="w-full h-auto px-4 mb-8 md:w-1/2 lg:w-1/2">
+                    <article class="bg-white flex flex-col relative h-full">
+                      <!-- THUMBNAIL -->
+                      <div class="relative aspect-video">
+                        <a href="#" class="block absolute inset-0">
+                          <img
+                            src="images/main-post-4.jpg"
+                            alt="main-post-4"
+                            class="h-full w-full object-cover"
+                            loading="lazy"
+                          />
+                        </a>
+                        <div class="absolute top-0 right-0 p-4 z-10">
+                          <!-- <span
+                            class="bg-primarySky text-white text-xs rounded-full font-roboto py-1 font-medium px-3"
+                            >Pinned</span
+                          > -->
+                        </div>
+                      </div>
+                      <!-- BODY -->
+                      <div class="flex-1 p-6 md:p-8 text-left lg:p-8">
+                        <div>
+                          <!-- CAPTION -->
+                          <div class="text-xs mb-2">
+                            <a
+                              href="#"
+                              class="text-primarySky font-bold font-roboto hover:underline uppercase"
+                              >Travel
+                            </a>
+                          </div>
+                          <!-- HEADING -->
+                          <h3
+                            class="text-2xl lg:text-2xl mb-0 font-bold hover:opacity-75"
+                          >
+                            <a href="#"
+                              >Australian Travel Advice: 10 Important Things To
+                              Know</a
+                            >
+                          </h3>
+                          <!-- META -->
+                          <div class="text-sm mt-4 text-black/50 font-roboto">
+                            <!-- DATE -->
+                            <span
+                              class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
+                            >
+                              June 22, 2022
+                            </span>
+                            <!-- STATS -->
+                            <span> 1.4K views </span>
+                          </div>
+                          <!-- POST BODY -->
+                          <div class="mt-4">
+                            <p class="mb-0 font-roboto text-black/60 leading-6">
+                              Help shouted touching causing posts is such
+                              specified incite adapt the audio had. Exceptional
+                              can’t…
+                            </p>
+                            <p class="mb-0 mt-4">
+                              <a
+                                href="#"
+                                class="font-roboto text-sm font-bold hover:text-primarySky uppercase"
+                                >Read more &rarr;</a
+                              >
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                  <!-- POST -->
+                  <div class="w-full h-auto px-4 mb-8 md:w-1/2 lg:w-1/2">
+                    <article class="bg-white flex flex-col relative h-full">
+                      <!-- THUMBNAIL -->
+                      <div class="relative aspect-video">
+                        <a href="#" class="block absolute inset-0">
+                          <img
+                            src="images/slide1.jpg"
+                            alt="main-post-3"
+                            class="h-full w-full object-cover"
+                            loading="lazy"
+                          />
+                        </a>
+                        <div class="absolute top-0 right-0 p-4 z-10">
+                          <!-- <span
+                            class="bg-primarySky text-white text-xs rounded-full font-roboto py-1 font-medium px-3"
+                            >Pinned</span
+                          > -->
+                        </div>
+                      </div>
+                      <!-- BODY -->
+                      <div class="flex-1 p-6 md:p-8 text-left lg:p-8">
+                        <div>
+                          <!-- CAPTION -->
+                          <div class="text-xs mb-2">
+                            <a
+                              href="#"
+                              class="text-primarySky font-bold font-roboto hover:underline uppercase"
+                              >Lifestyle
+                            </a>
+                          </div>
+                          <!-- HEADING -->
+                          <h3
+                            class="text-2xl lg:text-2xl mb-0 font-bold hover:opacity-75"
+                          >
+                            <a href="#"
+                              >The Real Reason Why Money Can’t Buy You
+                              Freedom</a
+                            >
+                          </h3>
+                          <!-- META -->
+                          <div class="text-sm mt-4 text-black/50 font-roboto">
+                            <!-- DATE -->
+                            <span
+                              class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
+                            >
+                              June 12, 2021
+                            </span>
+                            <!-- STATS -->
+                            <span> 2.4K views </span>
+                          </div>
+                          <!-- POST BODY -->
+                          <div class="mt-4">
+                            <p class="mb-0 font-roboto text-black/60 leading-6">
+                              Move posts avoid perhaps. Spiders above see wish
+                              comments purposes. Lot reason around no by…
+                            </p>
+                            <p class="mb-0 mt-4">
+                              <a
+                                href="#"
+                                class="font-roboto text-sm font-bold hover:text-primarySky uppercase"
+                                >Read more &rarr;</a
+                              >
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                  <!-- POST -->
+                  <div class="w-full h-auto px-4 mb-8 md:w-1/2 lg:w-1/2">
+                    <article class="bg-white flex flex-col relative h-full">
+                      <!-- THUMBNAIL -->
+                      <div class="relative aspect-video">
+                        <a href="#" class="block absolute inset-0">
+                          <img
+                            src="images/main-post-2.jpg"
+                            alt="main-post-3"
+                            class="h-full w-full object-cover"
+                            loading="lazy"
+                          />
+                        </a>
+                        <div class="absolute top-0 right-0 p-4 z-10">
+                          <!-- <span
+                            class="bg-primarySky text-white text-xs rounded-full font-roboto py-1 font-medium px-3"
+                            >Pinned</span
+                          > -->
+                        </div>
+                      </div>
+                      <!-- BODY -->
+                      <div class="flex-1 p-6 md:p-8 text-left lg:p-8">
+                        <div>
+                          <!-- CAPTION -->
+                          <div class="text-xs mb-2">
+                            <a
+                              href="#"
+                              class="text-primarySky font-bold font-roboto hover:underline uppercase"
+                              >Lifestyle
+                            </a>
+                          </div>
+                          <!-- HEADING -->
+                          <h3
+                            class="text-2xl lg:text-2xl mb-0 font-bold hover:opacity-75"
+                          >
+                            <a href="#"
+                              >The Real Reason Why Money Can’t Buy You
+                              Freedom</a
+                            >
+                          </h3>
+                          <!-- META -->
+                          <div class="text-sm mt-4 text-black/50 font-roboto">
+                            <!-- DATE -->
+                            <span
+                              class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
+                            >
+                              June 12, 2021
+                            </span>
+                            <!-- STATS -->
+                            <span> 2.4K views </span>
+                          </div>
+                          <!-- POST BODY -->
+                          <div class="mt-4">
+                            <p class="mb-0 font-roboto text-black/60 leading-6">
+                              Move posts avoid perhaps. Spiders above see wish
+                              comments purposes. Lot reason around no by…
+                            </p>
+                            <p class="mb-0 mt-4">
+                              <a
+                                href="#"
+                                class="font-roboto text-sm font-bold hover:text-primarySky uppercase"
+                                >Read more &rarr;</a
+                              >
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+              <!-- MAIN PAGINATION -->
+              <nav class="my-8">
+                <div class="flex justify-center items-center gap-x-3">
+                  <a
+                    href="#"
+                    class="inline-flex justify-center items-center text-white bg-primarySky font-roboto font-medium uppercase p-3 w-10 h-10 text-sm"
+                    >1</a
+                  >
+                  <a
+                    href="#"
+                    class="inline-flex justify-center items-center text-black/90 font-roboto font-medium uppercase p-3 w-10 h-10 hover:text-primarySky text-sm"
+                    >2</a
+                  >
+                  <a
+                    href="#"
+                    class="inline-flex justify-center items-center text-black/90 font-roboto font-medium uppercase p-3 w-10 h-10 hover:text-primarySky text-sm"
+                    >3</a
+                  >
+                  <a
+                    href="#"
+                    class="inline-flex justify-center items-center text-black/90 font-roboto font-medium uppercase p-3 w-20 h-10 hover:text-primarySky text-sm"
+                    >next &rarr;</a
+                  >
+                </div>
+              </nav>
+            </div>
+          </div>
+          <!-- SIDEBAR -->
+          <aside class="w-full lg:w-1/3 px-4">
+            <div
+              class="h-full flex flex-wrap flex-col md:flex-row lg:flex-col -mx-4"
+            >
+              <div class="w-full md:w-1/2 lg:w-full px-4 mb-8">
+                <div>
+                  <!-- SOCIAL LINKS -->
+                  <div class="bg-white p-6 md:p-8 mb-8 clearfix">
+                    <h3 class="font-bold text-xl mb-5">Social Links</h3>
+                    <ul class="flex flex-wrap -mr-3 -mb-3">
+                      <li class="w-1/5 mb-3">
+                        <a
+                          href="#"
+                          class="h-10 w-10 rounded-full flex items-center justify-center text-lg lg:h-12 lg:w-12 hover:opacity-75"
+                        >
+                          <img
+                            src="images/facebook-with-circle.svg"
+                            alt="FACEBOOK"
+                          />
+                        </a>
+                      </li>
+                      <li class="w-1/5 mb-3">
+                        <a
+                          href="#"
+                          class="h-10 w-10 rounded-full flex items-center justify-center text-lg lg:h-12 lg:w-12 hover:opacity-75"
+                        >
+                          <img
+                            src="images/twitter-with-circle.svg"
+                            alt="TWITTER"
+                          />
+                        </a>
+                      </li>
+                      <li class="w-1/5 mb-3">
+                        <a
+                          href="#"
+                          class="h-10 w-10 rounded-full flex items-center justify-center text-lg lg:h-12 lg:w-12 hover:opacity-75"
+                        >
+                          <img
+                            src="images/instagram-with-circle.svg"
+                            alt="INSTAGRAM"
+                          />
+                        </a>
+                      </li>
+                      <li class="w-1/5 mb-3">
+                        <a
+                          href="#"
+                          class="h-10 w-10 rounded-full flex items-center justify-center text-lg lg:h-12 lg:w-12 hover:opacity-75"
+                        >
+                          <img
+                            src="images/youtube-with-circle.svg"
+                            alt="YOUTUBE"
+                          />
+                        </a>
+                      </li>
+                      <li class="w-1/5 mb-3">
+                        <a
+                          href="#"
+                          class="h-10 w-10 rounded-full flex items-center justify-center text-lg lg:h-12 lg:w-12 hover:opacity-75"
+                        >
+                          <img
+                            src="images/linkedin-with-circle.svg"
+                            alt="LINKEDIN"
+                          />
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- RECENT POSTS -->
+                  <div class="w-full h-full bg-white p-8">
+                    <h3 class="text-xl mb-6 font-bold">Recent Posts</h3>
+                    <ul>
+                      <!-- THUMBNAIL -->
+                      <li class="flex justify-start items-start mb-6">
+                        <div class="w-20 mr-4">
+                          <a href="#" class="aspect-square">
+                            <img
+                              src="images/thumbnail-1.jpg"
+                              alt="thumbnail-1"
+                            />
+                          </a>
+                        </div>
+                        <div class="flex-1">
+                          <h3
+                            class="text-base mb-2 leading-tight text-black/90 font-bold hover:opacity-75"
+                          >
+                            <a href="#"
+                              >Few Facts About Streaming and Music Creation</a
+                            >
+                          </h3>
+                          <div class="font-roboto text-sm text-black/70">
+                            April 29, 2019
+                          </div>
+                        </div>
+                      </li>
+                      <!-- THUMBNAIL -->
+                      <li class="flex justify-start items-start mb-6">
+                        <div class="w-20 mr-4">
+                          <a href="#" class="aspect-square">
+                            <img
+                              src="images/thumbnail-2.jpg"
+                              alt="thumbnail-2"
+                            />
+                          </a>
+                        </div>
+                        <div class="flex-1">
+                          <h3
+                            class="text-base mb-2 leading-tight text-black/90 font-bold hover:opacity-75"
+                          >
+                            <a href="#"
+                              >The Real Reason Why Money Can’t Buy You
+                              Freedom</a
+                            >
+                          </h3>
+                          <div class="font-roboto text-sm text-black/70">
+                            May 27, 2019
+                          </div>
+                        </div>
+                      </li>
+                      <!-- THUMBNAIL -->
+                      <li class="flex justify-start items-start mb-6">
+                        <div class="w-20 mr-4">
+                          <a href="#" class="aspect-square">
+                            <img
+                              src="images/thumbnail-3.jpg"
+                              alt="thumbnail-3"
+                            />
+                          </a>
+                        </div>
+                        <div class="flex-1">
+                          <h3
+                            class="text-base mb-2 leading-tight text-black/90 font-bold hover:opacity-75"
+                          >
+                            <a href="#"
+                              >Hacking a Cheap $99 Camera to Do More Than It’s
+                              Worth</a
+                            >
+                          </h3>
+                          <div class="font-roboto text-sm text-black/70">
+                            June 01, 2019
+                          </div>
+                        </div>
+                      </li>
+                      <!-- THUMBNAIL -->
+                      <li class="flex justify-start items-start">
+                        <div class="w-20 mr-4">
+                          <a href="#" class="aspect-square">
+                            <img
+                              src="images/thumbnail-4.jpg"
+                              alt="thumbnail-4"
+                            />
+                          </a>
+                        </div>
+                        <div class="flex-1">
+                          <h3
+                            class="text-base mb-2 leading-tight text-black/90 font-bold hover:opacity-75"
+                          >
+                            <a href="#"
+                              >Physical Exercise to Boost Your Brain and
+                              Stamina</a
+                            >
+                          </h3>
+                          <div class="font-roboto text-sm text-black/70">
+                            May 02, 2019
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-1 w-full md:w-1/2 lg:w-full px-4 mb-8 relative">
+                <div class="sticky top-0">
+                  <!-- NEWSLETTER -->
+                  <div class="bg-white p-6 md:p-8 mb-8 clearfix">
+                    <h3 class="font-bold text-xl mb-5">Newsletter</h3>
+                    <p class="font-roboto mb-4">
+                      Subscribe to our newsletter and get our newest updates
+                      right on your inbox.
+                    </p>
+
+                    <form class="font-roboto">
+                      <input
+                        type="email"
+                        placeholder="Your email address"
+                        class="w-full opacity-60 py-2 px-4 border mb-4"
+                      />
+                      <span class="mb-4 block">
+                        <input
+                          type="checkbox"
+                          name="terms"
+                          id="checkbox"
+                          class="mr-2"
+                        />
+                        <a
+                          href="#"
+                          class="opacity-50 text-sm hover:text-primarySky hover:underline"
+                          >I agree to the terms & conditions</a
+                        >
+                      </span>
+                      <div class="mb-4">
+                        <button
+                          type="submit"
+                          class="bg-primarySky text-white uppercase text-sm w-full py-3 hover:opacity-70"
+                        >
+                          Subscribe
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                  <!-- INSTAGRAM -->
+                  <div class="bg-white p-6 md:p-8 mb-8 clearfix">
+                    <h3 class="font-bold text-xl mb-5">Instagram</h3>
+                    <p class="mb-0">No data available.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <!-- MAIN SECTION END -->
   </body>
 </html>
