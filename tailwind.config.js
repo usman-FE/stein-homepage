@@ -13,6 +13,7 @@ module.exports = {
         // PRIMARY COLORS
         primarySky: '#4299e1',
         secondaryDark: '#222225',
+        bgDark: '#1a1a1c',
       },
     },
   },
