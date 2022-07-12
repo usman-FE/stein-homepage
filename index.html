@@ -22,17 +22,59 @@
     ></script>
     <title>Stein</title>
   </head>
-  <body>
+  <body
+    x-data="{
+    headerSticky: false,
+    headerHeight: document.querySelector('#header').getBoundingClientRect().height,
+    modal: false,
+    }"
+    :class="{'overflow-hidden' : modal}"
+  >
     <!-- HEADER SECTION START -->
     <header
-      x-data="{isOpen: false, isModalOpen: false}
+      id="header"
+      x-data="{
+        isOpen: false,
+        isModalOpen: false,
+        fixedHeader: true,
+        oldValue: 0,
+        newValue: 0,
+        mobileHeaderHeight: $el.getBoundingClientRect().height,
+        setMarginClass: function(){
+          document.querySelector('#header').style.marginTop = this.mobileHeaderHeight + 'px';
+        },
+        removeMarginClass: function(){
+          document.querySelector('#header').style.marginTop = 0;
+        }
+        
+      }
     "
+      @scroll.window="
+      newValue = window.pageYOffset;
+      if (oldValue > newValue && window.pageYOffset > mobileHeaderHeight) {
+        fixedHeader = false;
+        headerSticky = true;
+        setMarginClass();
+      }else{
+        headerSticky = false;
+        fixedHeader = true;
+        removeMarginClass();
+      }
+      oldValue = newValue;
+      "
     >
       <!-- HEADER MOBILE -->
       <div
-        class="container mx-auto px-6 h-[7vh] flex flex-row items-center justify-between lg:hidden"
+        class="container mx-auto px-6 h-[7vh] flex flex-row items-center z-20 justify-between lg:hidden"
+        :class="{'fixed bg-white transition-all top-0 left-0 right-0' : !fixedHeader}"
       >
-        <a href="#" @click="isOpen = true">
+        <button
+          class="outline-none"
+          @click="
+        isOpen = true
+        modal = true
+        "
+        >
           <svg
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +86,7 @@
             <title>menu</title>
             <path d="M2 6h28v6h-28zM2 14h28v6h-28zM2 22h28v6h-28z"></path>
           </svg>
-        </a>
+        </button>
         <div class="text-center">
           <a href="https://stein.rifki.net/stein/" class="text-2xl font-bold"
             >Stein</a
@@ -52,10 +94,14 @@
         </div>
         <a
           href="#"
-          @click="isModalOpen = true
+          @click="isModalOpen = true;
+          modal = true;
           $nextTick(() => $refs.modalSearchbar.focus())
           "
-          @keydown.escape.window="isModalOpen = false"
+          @keydown.escape.window="
+          isModalOpen = false
+          modal = false
+          "
         >
           <svg
             version="1.1"
@@ -207,7 +253,10 @@
           </div>
         </div>
         <!-- HEADER NAVIGATION -->
-        <div class="bg-zinc-50">
+        <div
+          class="bg-zinc-50 transition-all z-20"
+          :class="{'fixed transition-all top-0 left-0 right-0' : !fixedHeader}"
+        >
           <div class="h-24 container mx-auto px-8 xl:px-14">
             <div
               class="flex flex-row items-center justify-between w-full h-full relative"
@@ -948,10 +997,15 @@
               <div>
                 <button
                   class="outline-none"
-                  @click="isModalOpen = true;
+                  @click="
+                  isModalOpen = true;
+                  modal = true;
                   $nextTick(() => $refs.modalSearchbar.focus());
                 "
-                  @keydown.escape.window="isModalOpen = false"
+                  @keydown.escape.window="
+                  isModalOpen = false
+                  modal = false
+                  "
                 >
                   <svg
                     version="1.1"
@@ -967,7 +1021,13 @@
                     ></path>
                   </svg>
                 </button>
-                <button class="outline-none ml-8" @click="isOpen = true">
+                <button
+                  class="outline-none ml-8"
+                  @click="
+                isOpen = true
+                modal = true
+                "
+                >
                   <svg
                     version="1.1"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1001,7 +1061,10 @@
           x-transition:leave="transition ease-out duration-300"
           x-transition:leave-start=""
           x-transition:leave-end="transform -translate-x-96"
-          @click.away="isOpen = false"
+          @click.away="
+          isOpen = false
+          modal = false
+          "
         >
           <!-- BRAND NAME -->
           <div
@@ -3320,7 +3383,10 @@
                 </div>
               </div>
               <div class="flex-1 w-full md:w-1/2 lg:w-full px-4 mb-8 relative">
-                <div class="sticky top-0">
+                <div
+                  class="sticky top-0"
+                  :class="headerSticky ? `top-24` : 'top-0'"
+                >
                   <!-- NEWSLETTER -->
                   <div class="bg-white p-6 md:p-8 mb-8 clearfix">
                     <h3 class="font-bold text-xl mb-5">Newsletter</h3>
@@ -3890,11 +3956,19 @@
       href="#"
       class="fixed bottom-0 right-0 h-8 w-8 inline-flex items-center justify-center bg-primarySky text-white hover:text-white text-lg leading-none shadow-lg rounded-full hover:no-underline transition-opacity duration-500 ease-in-out hover:opacity-75 mr-4 mb-4 lg:mr-6 lg:mb-6 z-50"
     >
-      <img
-        src="images/chevron-down.svg"
-        class="rotate-180 h-full w-full"
-        alt="back to top"
-      />
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        class="rotate-180 h-full w-full fill-white"
+      >
+        <title>chevron-down</title>
+        <path
+          d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+        ></path>
+      </svg>
     </a>
   </body>
 </html>
