@@ -14,6 +14,7 @@ module.exports = {
         primarySky: '#4299e1',
         secondaryDark: '#222225',
         bgDark: '#1a1a1c',
+        bgLightDark: '#2a2a2c',
       },
     },
   },
