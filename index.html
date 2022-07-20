@@ -26,9 +26,7 @@
     x-data="{
     headerSticky: false,
     headerHeight: document.querySelector('#header').getBoundingClientRect().height,
-    modal: false,
     }"
-    :class="{'overflow-hidden' : modal}"
   >
     <!-- HEADER SECTION START -->
     <header
@@ -45,6 +43,12 @@
         },
         removeMarginClass: function(){
           document.querySelector('#header').style.marginTop = 0;
+        },
+        bodyOverflowHidden(){
+          document.querySelector('body').style.overflow = 'hidden';
+        },
+        bodyOverflowVisible(){
+          document.querySelector('body').style.overflow = 'visible';
         }
         
       }
@@ -71,9 +75,9 @@
         <button
           class="outline-none"
           @click="
-        isOpen = true
-        modal = true
-        "
+            isOpen = true;
+            bodyOverflowHidden();
+          "
         >
           <svg
             version="1.1"
@@ -81,7 +85,7 @@
             width="16"
             height="16"
             viewBox="0 0 32 32"
-            class="hover:fill-primarySky"
+            class="hover:fill-[#4299e1]"
           >
             <title>menu</title>
             <path d="M2 6h28v6h-28zM2 14h28v6h-28zM2 22h28v6h-28z"></path>
@@ -95,12 +99,12 @@
         <a
           href="#"
           @click="isModalOpen = true;
-          modal = true;
           $nextTick(() => $refs.modalSearchbar.focus())
+          bodyOverflowHidden();
           "
           @keydown.escape.window="
-          isModalOpen = false
-          modal = false
+          isModalOpen = false;
+          bodyOverflowVisible();
           "
         >
           <svg
@@ -125,32 +129,32 @@
             class="h-14 flex flex-row items-center justify-between container mx-auto px-8 xl:px-14"
           >
             <nav>
-              <ul class="flex flex-row font-roboto font-medium">
+              <ul class="flex flex-row font-['roboto'] font-medium">
                 <li>
                   <a
                     href="#"
-                    class="text-black/80 text-xs tracking-[.05em] pr-4 hover:text-primarySky"
+                    class="text-black/80 text-xs tracking-[.05em] pr-4 hover:text-[#4299e1]"
                     >HOME</a
                   >
                 </li>
                 <li>
                   <a
                     href="#"
-                    class="text-black/80 text-xs tracking-[.05em] px-4 hover:text-primarySky"
+                    class="text-black/80 text-xs tracking-[.05em] px-4 hover:text-[#4299e1]"
                     >ADVERTISE</a
                   >
                 </li>
                 <li>
                   <a
                     href="#"
-                    class="text-black/80 text-xs tracking-[.05em] px-4 hover:text-primarySky"
+                    class="text-black/80 text-xs tracking-[.05em] px-4 hover:text-[#4299e1]"
                     >ABOUT</a
                   >
                 </li>
                 <li>
                   <a
                     href="#"
-                    class="text-black/80 text-xs tracking-[.05em] px-4 hover:text-primarySky"
+                    class="text-black/80 text-xs tracking-[.05em] px-4 hover:text-[#4299e1]"
                     >CONTACT</a
                   >
                 </li>
@@ -166,7 +170,7 @@
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
                       height="16"
-                      class="hover:fill-primarySky"
+                      class="hover:fill-[#4299e1]"
                       viewBox="0 0 20 20"
                     >
                       <title>facebook-with-circle</title>
@@ -184,7 +188,7 @@
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
                       height="16"
-                      class="hover:fill-primarySky"
+                      class="hover:fill-[#4299e1]"
                       viewBox="0 0 20 20"
                     >
                       <title>twitter-with-circle</title>
@@ -202,7 +206,7 @@
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
                       height="16"
-                      class="hover:fill-primarySky"
+                      class="hover:fill-[#4299e1]"
                       viewBox="0 0 20 20"
                     >
                       <title>instagram-with-circle</title>
@@ -220,7 +224,7 @@
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
                       height="16"
-                      class="hover:fill-primarySky"
+                      class="hover:fill-[#4299e1]"
                       viewBox="0 0 20 20"
                     >
                       <title>youtube-with-circle</title>
@@ -238,7 +242,7 @@
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
                       height="16"
-                      class="hover:fill-primarySky"
+                      class="hover:fill-[#4299e1]"
                       viewBox="0 0 20 20"
                     >
                       <title>linkedin-with-circle</title>
@@ -271,19 +275,19 @@
               </div>
               <!-- MENU ITEMS -->
               <nav class="h-full">
-                <ul class="flex flex-row h-full font-roboto font-medium">
+                <ul class="flex flex-row h-full font-['roboto'] font-medium">
                   <li class="flex p-4 relative group">
                     <a
                       href="#"
                       class="group flex flex-row items-center gap-x-2"
                     >
-                      <span class="group-hover:text-primarySky">Demos</span>
+                      <span class="group-hover:text-[#4299e1]">Demos</span>
                       <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
                         width="12"
                         height="12"
-                        class="group-hover:fill-primarySky"
+                        class="group-hover:fill-[#4299e1]"
                         viewBox="0 0 20 20"
                       >
                         <title>chevron-down</title>
@@ -302,16 +306,16 @@
                       />
                     </span>
                     <ul
-                      class="bg-secondaryDark text-white absolute top-full z-10 -ml-6 py-4 hidden group-hover:block"
+                      class="bg-[#222225] text-white absolute top-full z-10 -ml-6 py-4 hidden group-hover:block"
                     >
                       <li>
                         <a
                           href="#"
-                          class="flex px-6 py-2 text-sm hover:text-primarySky min-w-[12rem]"
+                          class="flex px-6 py-2 text-sm hover:text-[#4299e1] min-w-[12rem]"
                         >
                           Stein
                           <span
-                            class="bg-primarySky text-white ml-2 text-xs py-0.5 px-2 rounded-full"
+                            class="bg-[#4299e1] text-white ml-2 text-xs py-0.5 px-2 rounded-full"
                             >Current</span
                           >
                         </a>
@@ -319,7 +323,7 @@
                       <li>
                         <a
                           href="#"
-                          class="flex px-6 py-2 text-sm hover:text-primarySky min-w-[12rem]"
+                          class="flex px-6 py-2 text-sm hover:text-[#4299e1] min-w-[12rem]"
                         >
                           Rosenstein
                         </a>
@@ -327,25 +331,30 @@
                       <li>
                         <a
                           href="#"
-                          class="flex px-6 py-2 text-sm hover:text-primarySky min-w-[12rem]"
+                          class="flex px-6 py-2 text-sm hover:text-[#4299e1] min-w-[12rem]"
                         >
                           Scienstein
                         </a>
                       </li>
                     </ul>
                   </li>
-                  <li class="flex p-4 relative group">
+                  <li
+                    class="flex p-4 relative"
+                    x-data="{isDropDownOpen: false}"
+                    @mouseleave="isDropDownOpen = false"
+                  >
                     <a
                       href="#"
                       class="group flex flex-row items-center gap-x-2"
+                      @mouseover="isDropDownOpen = true"
                     >
-                      <span class="group-hover:text-primarySky">Features</span>
+                      <span class="group-hover:text-[#4299e1]">Features</span>
                       <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
                         width="12"
                         height="12"
-                        class="group-hover:fill-primarySky"
+                        class="group-hover:fill-[#4299e1]"
                         viewBox="0 0 20 20"
                       >
                         <title>chevron-down</title>
@@ -355,7 +364,8 @@
                       </svg>
                     </a>
                     <span
-                      class="absolute top-full left-1/2 -translate-x-1/2 mt-3 -translate-y-full hidden group-hover:block"
+                      class="absolute top-full left-1/2 -translate-x-1/2 mt-3 -translate-y-full"
+                      x-show="isDropDownOpen"
                     >
                       <img
                         src="images/iconmonstr-triangle-1.svg"
@@ -364,14 +374,15 @@
                       />
                     </span>
                     <ul
-                      class="bg-secondaryDark text-white absolute top-full z-10 -ml-6 py-4 hidden group-hover:block"
+                      class="bg-[#222225] text-white absolute top-full z-10 -ml-6 py-4"
+                      x-show="isDropDownOpen"
                     >
-                      <li class="group-nested-l1 relative">
+                      <li class="group relative">
                         <a
                           href="#"
                           class="flex px-6 py-2 text-sm min-w-[12rem] flex-row items-center justify-between"
                         >
-                          <span class="group-nested-l1-hover:text-primarySky"
+                          <span class="group-hover:text-[#4299e1]"
                             >Sidebar</span
                           >
                           <svg
@@ -379,7 +390,7 @@
                             xmlns="http://www.w3.org/2000/svg"
                             width="12"
                             height="12"
-                            class="group-nested-l1-hover:fill-primarySky fill-white"
+                            class="group-hover:fill-[#4299e1] fill-white"
                             viewBox="0 0 20 20"
                           >
                             <title>chevron-down</title>
@@ -389,12 +400,12 @@
                           </svg>
                         </a>
                         <ul
-                          class="bg-secondaryDark text-white absolute left-full top-0 z-10 py-4 -mt-4 hidden group-nested-l1-hover:block"
+                          class="bg-[#222225] text-white absolute left-full top-0 z-10 py-4 -mt-4 hidden group-hover:block"
                         >
                           <li>
                             <a
                               href="#"
-                              class="flex px-6 py-2 text-sm hover:text-primarySky min-w-[12rem]"
+                              class="flex px-6 py-2 text-sm hover:text-[#4299e1] min-w-[12rem]"
                             >
                               Left Sidebar
                             </a>
@@ -402,7 +413,7 @@
                           <li>
                             <a
                               href="#"
-                              class="flex px-6 py-2 text-sm hover:text-primarySky min-w-[12rem]"
+                              class="flex px-6 py-2 text-sm hover:text-[#4299e1] min-w-[12rem]"
                             >
                               Right Sidebar
                             </a>
@@ -410,19 +421,19 @@
                           <li>
                             <a
                               href="#"
-                              class="flex px-6 py-2 text-sm hover:text-primarySky min-w-[12rem]"
+                              class="flex px-6 py-2 text-sm hover:text-[#4299e1] min-w-[12rem]"
                             >
                               No Sidebar
                             </a>
                           </li>
                         </ul>
                       </li>
-                      <li class="group-nested-l1 relative">
+                      <li class="group relative">
                         <a
                           href="#"
                           class="flex px-6 py-2 text-sm min-w-[12rem] flex-row items-center justify-between"
                         >
-                          <span class="group-nested-l1-hover:text-primarySky"
+                          <span class="group-hover:text-[#4299e1]"
                             >Single Post</span
                           >
                           <svg
@@ -430,7 +441,7 @@
                             xmlns="http://www.w3.org/2000/svg"
                             width="12"
                             height="12"
-                            class="group-nested-l1-hover:fill-primarySky fill-white"
+                            class="group-hover:fill-[#4299e1] fill-white"
                             viewBox="0 0 20 20"
                           >
                             <title>chevron-down</title>
@@ -440,12 +451,12 @@
                           </svg>
                         </a>
                         <ul
-                          class="bg-secondaryDark text-white absolute left-full top-0 z-10 py-4 -mt-4 hidden group-nested-l1-hover:block"
+                          class="bg-[#222225] text-white absolute left-full top-0 z-10 py-4 -mt-4 hidden group-hover:block"
                         >
                           <li>
                             <a
                               href="#"
-                              class="flex px-6 py-2 text-sm hover:text-primarySky min-w-[12rem]"
+                              class="flex px-6 py-2 text-sm hover:text-[#4299e1] min-w-[12rem]"
                             >
                               Left Sidebar
                             </a>
@@ -453,7 +464,7 @@
                           <li>
                             <a
                               href="#"
-                              class="flex px-6 py-2 text-sm hover:text-primarySky min-w-[12rem]"
+                              class="flex px-6 py-2 text-sm hover:text-[#4299e1] min-w-[12rem]"
                             >
                               Right Sidebar
                             </a>
@@ -461,19 +472,19 @@
                           <li>
                             <a
                               href="#"
-                              class="flex px-6 py-2 text-sm hover:text-primarySky min-w-[12rem]"
+                              class="flex px-6 py-2 text-sm hover:text-[#4299e1] min-w-[12rem]"
                             >
                               No Sidebar
                             </a>
                           </li>
                         </ul>
                       </li>
-                      <li class="group-nested-l1 relative">
+                      <li class="group relative">
                         <a
                           href="#"
                           class="flex px-6 py-2 text-sm min-w-[12rem] flex-row items-center justify-between"
                         >
-                          <span class="group-nested-l1-hover:text-primarySky"
+                          <span class="group-hover:text-[#4299e1]"
                             >Navigation</span
                           >
                           <svg
@@ -481,7 +492,7 @@
                             xmlns="http://www.w3.org/2000/svg"
                             width="12"
                             height="12"
-                            class="group-nested-l1-hover:fill-primarySky fill-white"
+                            class="group-hover:fill-[#4299e1] fill-white"
                             viewBox="0 0 20 20"
                           >
                             <title>chevron-down</title>
@@ -491,12 +502,12 @@
                           </svg>
                         </a>
                         <ul
-                          class="bg-secondaryDark text-white absolute left-full top-0 z-10 py-4 -mt-4 hidden group-nested-l1-hover:block"
+                          class="bg-[#222225] text-white absolute left-full top-0 z-10 py-4 -mt-4 hidden group-hover:block"
                         >
                           <li>
                             <a
                               href="#"
-                              class="flex px-6 py-2 text-sm hover:text-primarySky min-w-[12rem]"
+                              class="flex px-6 py-2 text-sm hover:text-[#4299e1] min-w-[12rem]"
                             >
                               Left Sidebar
                             </a>
@@ -504,7 +515,7 @@
                           <li>
                             <a
                               href="#"
-                              class="flex px-6 py-2 text-sm hover:text-primarySky min-w-[12rem]"
+                              class="flex px-6 py-2 text-sm hover:text-[#4299e1] min-w-[12rem]"
                             >
                               Right Sidebar
                             </a>
@@ -512,7 +523,7 @@
                           <li>
                             <a
                               href="#"
-                              class="flex px-6 py-2 text-sm hover:text-primarySky min-w-[12rem]"
+                              class="flex px-6 py-2 text-sm hover:text-[#4299e1] min-w-[12rem]"
                             >
                               No Sidebar
                             </a>
@@ -522,7 +533,7 @@
                       <li>
                         <a
                           href="#"
-                          class="flex px-6 py-2 text-sm hover:text-primarySky min-w-[12rem]"
+                          class="flex px-6 py-2 text-sm hover:text-[#4299e1] min-w-[12rem]"
                         >
                           Post Video
                           <span
@@ -534,7 +545,7 @@
                       <li>
                         <a
                           href="#"
-                          class="flex px-6 py-2 text-sm hover:text-primarySky min-w-[12rem]"
+                          class="flex px-6 py-2 text-sm hover:text-[#4299e1] min-w-[12rem]"
                         >
                           Author Page
                         </a>
@@ -542,7 +553,7 @@
                       <li>
                         <a
                           href="#"
-                          class="flex px-6 py-2 text-sm hover:text-primarySky min-w-[12rem]"
+                          class="flex px-6 py-2 text-sm hover:text-[#4299e1] min-w-[12rem]"
                         >
                           Error 404
                         </a>
@@ -550,7 +561,7 @@
                       <li>
                         <a
                           href="#"
-                          class="flex px-6 py-2 text-sm hover:text-primarySky min-w-[12rem]"
+                          class="flex px-6 py-2 text-sm hover:text-[#4299e1] min-w-[12rem]"
                         >
                           Category Page
                         </a>
@@ -558,27 +569,30 @@
                       <li>
                         <a
                           href="#"
-                          class="flex px-6 py-2 text-sm hover:text-primarySky min-w-[12rem]"
+                          class="flex px-6 py-2 text-sm hover:text-[#4299e1] min-w-[12rem]"
                         >
                           Search Page
                         </a>
                       </li>
                     </ul>
                   </li>
-                  <li class="flex p-4 group">
+                  <li
+                    class="flex p-4"
+                    x-data="{isDropDownOpen: false}"
+                    @mouseleave="isDropDownOpen = false"
+                  >
                     <a
                       href="#"
-                      class="group flex flex-row items-center gap-x-2"
+                      class="group flex flex-row items-center gap-x-2 relative"
+                      @mouseover="isDropDownOpen = true"
                     >
-                      <span class="group-hover:text-primarySky"
-                        >Categories</span
-                      >
+                      <span class="group-hover:text-[#4299e1]">Categories</span>
                       <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
                         width="12"
                         height="12"
-                        class="group-hover:fill-primarySky"
+                        class="group-hover:fill-[#4299e1]"
                         viewBox="0 0 20 20"
                       >
                         <title>chevron-down</title>
@@ -586,18 +600,21 @@
                           d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
                         ></path>
                       </svg>
+                      <span
+                        class="absolute top-full mt-1 left-1/2 -translate-x-1/2"
+                        x-show="isDropDownOpen"
+                      >
+                        <img
+                          src="images/iconmonstr-triangle-1.svg"
+                          class="block"
+                          alt="triangle-up"
+                        />
+                      </span>
                     </a>
-                    <span
-                      class="absolute top-full left-[490px] -translate-x-1/2 mt-3 -translate-y-full hidden group-hover:block"
-                    >
-                      <img
-                        src="images/iconmonstr-triangle-1.svg"
-                        class="block"
-                        alt="triangle-up"
-                      />
-                    </span>
+
                     <div
-                      class="absolute top-full bg-secondaryDark w-full left-0 z-10 hidden group-hover:block"
+                      class="absolute top-full bg-[#222225] w-full left-0 z-10"
+                      x-show="isDropDownOpen"
                     >
                       <!-- SHOWCASE -->
                       <div class="flex" x-data="{showcase : 'showcase1'}">
@@ -605,38 +622,35 @@
                         <ul
                           class="text-white py-8 border-r border-white/10 flex flex-col w-1/5"
                         >
-                          <li class="group-nested-l1">
+                          <li class="group">
                             <a
                               href="#"
                               class="flex px-6 py-2 text-sm flex-row items-center justify-between"
                               @mouseenter="showcase = 'showcase1'"
                             >
-                              <span
-                                class="group-nested-l1-hover:text-primarySky"
+                              <span class="group-hover:text-[#4299e1]"
                                 >Entertainment</span
                               >
                             </a>
                           </li>
-                          <li class="group-nested-l1">
+                          <li class="group">
                             <a
                               href="#"
                               class="flex px-6 py-2 text-sm flex-row items-center justify-between"
                               @mouseenter="showcase = 'showcase2'"
                             >
-                              <span
-                                class="group-nested-l1-hover:text-primarySky"
+                              <span class="group-hover:text-[#4299e1]"
                                 >Lifestyle</span
                               >
                             </a>
                           </li>
-                          <li class="group-nested-l1">
+                          <li class="group">
                             <a
                               href="#"
                               class="flex px-6 py-2 text-sm flex-row items-center justify-between"
                               @mouseenter="showcase = 'showcase3'"
                             >
-                              <span
-                                class="group-nested-l1-hover:text-primarySky"
+                              <span class="group-hover:text-[#4299e1]"
                                 >Travel</span
                               >
                             </a>
@@ -663,7 +677,7 @@
                               </div>
                               <div>
                                 <h2
-                                  class="text-sm font-bold text-white leading-4 tracking-normal font-IBM hover:opacity-75"
+                                  class="text-sm font-bold text-white leading-4 tracking-normal font-['IBM'] hover:opacity-75"
                                 >
                                   <a href="#" class="">
                                     Podcast Protocol: How to Interview Someone
@@ -688,7 +702,7 @@
                               </div>
                               <div>
                                 <h2
-                                  class="text-sm font-bold text-white leading-4 tracking-normal font-IBM hover:opacity-75"
+                                  class="text-sm font-bold text-white leading-4 tracking-normal font-['IBM'] hover:opacity-75"
                                 >
                                   <a href="#" class="">
                                     The 10 Best Disney Channel Stars Turned Pop
@@ -713,7 +727,7 @@
                               </div>
                               <div>
                                 <h2
-                                  class="text-sm font-bold text-white leading-4 tracking-normal font-IBM hover:opacity-75"
+                                  class="text-sm font-bold text-white leading-4 tracking-normal font-['IBM'] hover:opacity-75"
                                 >
                                   <a href="#" class="">
                                     The History of Jazz in Ten 7-Inch Vinyl
@@ -738,7 +752,7 @@
                               </div>
                               <div>
                                 <h2
-                                  class="text-sm font-bold text-white leading-4 tracking-normal font-IBM hover:opacity-75"
+                                  class="text-sm font-bold text-white leading-4 tracking-normal font-['IBM'] hover:opacity-75"
                                 >
                                   <a href="#" class="">
                                     How to make Every Second Count at A Music
@@ -772,7 +786,7 @@
                               </div>
                               <div>
                                 <h2
-                                  class="text-sm font-bold text-white leading-4 tracking-normal font-IBM hover:opacity-75"
+                                  class="text-sm font-bold text-white leading-4 tracking-normal font-['IBM'] hover:opacity-75"
                                 >
                                   <a href="#" class="">
                                     The Real Reason Why Money Can’t Buy You
@@ -797,7 +811,7 @@
                               </div>
                               <div>
                                 <h2
-                                  class="text-sm font-bold text-white leading-4 tracking-normal font-IBM hover:opacity-75"
+                                  class="text-sm font-bold text-white leading-4 tracking-normal font-['IBM'] hover:opacity-75"
                                 >
                                   <a href="#" class="">
                                     10 Eating Habits That Rewire Your Brain for
@@ -822,7 +836,7 @@
                               </div>
                               <div>
                                 <h2
-                                  class="text-sm font-bold text-white leading-4 tracking-normal font-IBM hover:opacity-75"
+                                  class="text-sm font-bold text-white leading-4 tracking-normal font-['IBM'] hover:opacity-75"
                                 >
                                   <a href="#" class="">
                                     The Powerful Link Between Sleep and
@@ -847,7 +861,7 @@
                               </div>
                               <div>
                                 <h2
-                                  class="text-sm font-bold text-white leading-4 tracking-normal font-IBM hover:opacity-75"
+                                  class="text-sm font-bold text-white leading-4 tracking-normal font-['IBM'] hover:opacity-75"
                                 >
                                   <a href="#" class="">
                                     Setting Running Goals in The Blistering
@@ -881,7 +895,7 @@
                               </div>
                               <div>
                                 <h2
-                                  class="text-sm font-bold text-white leading-4 tracking-normal font-IBM hover:opacity-75"
+                                  class="text-sm font-bold text-white leading-4 tracking-normal font-['IBM'] hover:opacity-75"
                                 >
                                   <a href="#" class="">
                                     Australian Travel Advice: 10 Important
@@ -906,7 +920,7 @@
                               </div>
                               <div>
                                 <h2
-                                  class="text-sm font-bold text-white leading-4 tracking-normal font-IBM hover:opacity-75"
+                                  class="text-sm font-bold text-white leading-4 tracking-normal font-['IBM'] hover:opacity-75"
                                 >
                                   <a href="#" class="">
                                     Where to Find Real Mexican-American Food in
@@ -931,7 +945,7 @@
                               </div>
                               <div>
                                 <h2
-                                  class="text-sm font-bold text-white leading-4 tracking-normal font-IBM hover:opacity-75"
+                                  class="text-sm font-bold text-white leading-4 tracking-normal font-['IBM'] hover:opacity-75"
                                 >
                                   <a href="#" class="">
                                     How to Protect Your Data on Business Trips
@@ -956,7 +970,7 @@
                               </div>
                               <div>
                                 <h2
-                                  class="text-sm font-bold text-white leading-4 tracking-normal font-IBM hover:opacity-75"
+                                  class="text-sm font-bold text-white leading-4 tracking-normal font-['IBM'] hover:opacity-75"
                                 >
                                   <a href="#" class="">
                                     Quirky Small Towns in California to Visit
@@ -974,19 +988,19 @@
                     </div>
                   </li>
                   <li class="flex p-4 items-center">
-                    <a href="#" class="hover:text-primarySky">Lifestyle</a>
+                    <a href="#" class="hover:text-[#4299e1]">Lifestyle</a>
                   </li>
                   <li class="flex p-4 items-center">
-                    <a href="#" class="hover:text-primarySky">Travel</a>
+                    <a href="#" class="hover:text-[#4299e1]">Travel</a>
                   </li>
                   <li class="flex p-4 items-center">
-                    <a href="#" class="hover:text-primarySky">Contact</a>
+                    <a href="#" class="hover:text-[#4299e1]">Contact</a>
                   </li>
                   <li class="flex p-4 items-center">
-                    <a href="#" class="hover:text-primarySky">
+                    <a href="#" class="hover:text-[#4299e1]">
                       Purchase
                       <span
-                        class="bg-primarySky text-white leading-3 ml-2 text-xs py-1 px-2 rounded-full"
+                        class="bg-[#4299e1] text-white leading-3 ml-2 text-xs py-1 px-2 rounded-full"
                         >$49</span
                       >
                     </a>
@@ -999,12 +1013,12 @@
                   class="outline-none"
                   @click="
                   isModalOpen = true;
-                  modal = true;
                   $nextTick(() => $refs.modalSearchbar.focus());
+                  bodyOverflowHidden();
                 "
                   @keydown.escape.window="
-                  isModalOpen = false
-                  modal = false
+                  isModalOpen = false;
+                  bodyOverflowVisible();
                   "
                 >
                   <svg
@@ -1012,7 +1026,7 @@
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="16"
-                    class="hover:fill-primarySky"
+                    class="hover:fill-[#4299e1]"
                     viewBox="0 0 20 20"
                   >
                     <title>search</title>
@@ -1024,16 +1038,16 @@
                 <button
                   class="outline-none ml-8"
                   @click="
-                isOpen = true
-                modal = true
-                "
+                    isOpen = true;
+                    bodyOverflowHidden();
+                  "
                 >
                   <svg
                     version="1.1"
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="16"
-                    class="hover:fill-primarySky"
+                    class="hover:fill-[#4299e1]"
                     viewBox="0 0 32 32"
                   >
                     <title>menu</title>
@@ -1062,8 +1076,8 @@
           x-transition:leave-start=""
           x-transition:leave-end="transform -translate-x-96"
           @click.away="
-          isOpen = false
-          modal = false
+          isOpen = false;
+          bodyOverflowVisible();
           "
         >
           <!-- BRAND NAME -->
@@ -1080,11 +1094,11 @@
               <div class="mb-5">
                 <h3 class="text-xl font-bold">Categories</h3>
               </div>
-              <ul class="font-roboto">
+              <ul class="font-['roboto']">
                 <li class="flex items-center justify-between mb-3">
                   <a
                     href="#"
-                    class="hover:text-primarySky tracking-normal font-normal opacity-60 text-base"
+                    class="hover:text-[#4299e1] tracking-normal font-normal opacity-60 text-base"
                     >Entertainment</a
                   >
                   <span
@@ -1095,7 +1109,7 @@
                 <li class="flex items-center justify-between mb-3">
                   <a
                     href="#"
-                    class="hover:text-primarySky tracking-normal font-normal opacity-60 text-base"
+                    class="hover:text-[#4299e1] tracking-normal font-normal opacity-60 text-base"
                     >Lifestyle</a
                   >
                   <span
@@ -1106,7 +1120,7 @@
                 <li class="flex items-center justify-between mb-3">
                   <a
                     href="#"
-                    class="hover:text-primarySky tracking-normal font-normal opacity-60 text-base"
+                    class="hover:text-[#4299e1] tracking-normal font-normal opacity-60 text-base"
                     >Travel</a
                   >
                   <span
@@ -1121,13 +1135,13 @@
               <div class="mb-5">
                 <h3 class="text-xl font-bold">Newsletter</h3>
               </div>
-              <div class="font-roboto mb-5">
+              <div class="font-['roboto'] mb-5">
                 <p class="tracking-normal font-normal opacity-60 text-base">
                   Subscribe to our newsletter and get our newest updates right
                   on your inbox.
                 </p>
               </div>
-              <div class="font-roboto mb-5">
+              <div class="font-['roboto'] mb-5">
                 <form>
                   <input
                     type="text"
@@ -1143,14 +1157,14 @@
                     />
                     <a
                       href="#"
-                      class="opacity-50 text-sm hover:text-primarySky hover:underline"
+                      class="opacity-50 text-sm hover:text-[#4299e1] hover:underline"
                       >I agree to the terms & conditions</a
                     >
                   </span>
                   <div class="mb-4">
                     <button
                       type="submit"
-                      class="bg-primarySky text-white uppercase text-sm w-full py-3 hover:opacity-70"
+                      class="bg-[#4299e1] text-white uppercase text-sm w-full py-3 hover:opacity-70"
                     >
                       Subscribe
                     </button>
@@ -1161,16 +1175,16 @@
             <!-- MOBILE MENU SIDEBAR -->
             <div class="mb-6 md:mb-8 lg:hidden">
               <div class="-mx-6 md:-mx-8">
-                <ul class="font-roboto">
+                <ul class="font-['roboto']">
                   <li x-data="{dropDown : false}">
                     <a
                       href="#"
-                      class="px-8 py-3 border-l-4 border-primarySky flex flex-row items-center justify-between group"
+                      class="px-8 py-3 border-l-4 border-[#4299e1] flex flex-row items-center justify-between group"
                       @click="dropDown = !dropDown"
                     >
                       <span
-                        class="group-hover:text-primarySky text-primarySky"
-                        :class="{'!text-primarySky transition-all' : dropDown}"
+                        class="group-hover:text-[#4299e1] text-[#4299e1]"
+                        :class="{'!text-[#4299e1] transition-all' : dropDown}"
                         >Demos</span
                       >
                       <svg
@@ -1178,8 +1192,8 @@
                         xmlns="http://www.w3.org/2000/svg"
                         width="12"
                         height="12"
-                        class="group-hover:fill-primarySky fill-primarySky transition-all"
-                        :class="{'rotate-180 transition-all !fill-primarySky' : dropDown,
+                        class="group-hover:fill-[#4299e1] fill-[#4299e1] transition-all"
+                        :class="{'rotate-180 transition-all !fill-[#4299e1]' : dropDown,
                                  'rotate-0 transition-all' : !dropDown}"
                         viewBox="0 0 20 20"
                       >
@@ -1193,11 +1207,11 @@
                       <li>
                         <a
                           href="#"
-                          class="flex px-8 py-3 border-l-4 border-transparent hover:text-primarySky"
+                          class="flex px-8 py-3 border-l-4 border-transparent hover:text-[#4299e1]"
                         >
                           Stein
                           <span
-                            class="bg-primarySky text-white ml-2 text-xs py-1 px-2 rounded-full"
+                            class="bg-[#4299e1] text-white ml-2 text-xs py-1 px-2 rounded-full"
                             >Current</span
                           >
                         </a>
@@ -1205,7 +1219,7 @@
                       <li>
                         <a
                           href="#"
-                          class="flex px-8 py-3 border-l-4 border-transparent hover:text-primarySky"
+                          class="flex px-8 py-3 border-l-4 border-transparent hover:text-[#4299e1]"
                         >
                           Rosenstein
                         </a>
@@ -1213,7 +1227,7 @@
                       <li>
                         <a
                           href="#"
-                          class="flex px-8 py-3 border-l-4 border-transparent hover:text-primarySky"
+                          class="flex px-8 py-3 border-l-4 border-transparent hover:text-[#4299e1]"
                         >
                           Scienstein
                         </a>
@@ -1223,13 +1237,13 @@
                   <li x-data="{dropDown : false}">
                     <a
                       href="#"
-                      class="px-8 py-3 border-l-4 border-transparent hover:border-primarySky flex flex-row items-center justify-between group"
+                      class="px-8 py-3 border-l-4 border-transparent hover:border-[#4299e1] flex flex-row items-center justify-between group"
                       @click="dropDown = !dropDown"
-                      :class="{'!border-primarySky transition-all' : dropDown}"
+                      :class="{'!border-[#4299e1] transition-all' : dropDown}"
                     >
                       <span
-                        class="group-hover:text-primarySky"
-                        :class="{'!text-primarySky transition-all' : dropDown}"
+                        class="group-hover:text-[#4299e1]"
+                        :class="{'!text-[#4299e1] transition-all' : dropDown}"
                         >Features</span
                       >
                       <svg
@@ -1237,8 +1251,8 @@
                         xmlns="http://www.w3.org/2000/svg"
                         width="12"
                         height="12"
-                        class="group-hover:fill-primarySky"
-                        :class="{'rotate-180 transition-all !fill-primarySky' : dropDown,
+                        class="group-hover:fill-[#4299e1]"
+                        :class="{'rotate-180 transition-all !fill-[#4299e1]' : dropDown,
                                  'rotate-0 transition-all' : !dropDown}"
                         viewBox="0 0 20 20"
                       >
@@ -1256,8 +1270,8 @@
                           @click="subDropDown = !subDropDown"
                         >
                           <span
-                            class="group-hover:text-primarySky"
-                            :class="{'!text-primarySky transition-all' : subDropDown}"
+                            class="group-hover:text-[#4299e1]"
+                            :class="{'!text-[#4299e1] transition-all' : subDropDown}"
                             >Sidebar</span
                           >
                           <svg
@@ -1265,8 +1279,8 @@
                             xmlns="http://www.w3.org/2000/svg"
                             width="12"
                             height="12"
-                            class="group-hover:fill-primarySky"
-                            :class="{'rotate-180 transition-all !fill-primarySky' : subDropDown,
+                            class="group-hover:fill-[#4299e1]"
+                            :class="{'rotate-180 transition-all !fill-[#4299e1]' : subDropDown,
                                  'rotate-0 transition-all' : !subDropDown}"
                             viewBox="0 0 20 20"
                           >
@@ -1280,7 +1294,7 @@
                           <li>
                             <a
                               href="#"
-                              class="flex px-8 py-3 border-l-4 border-transparent hover:text-primarySky"
+                              class="flex px-8 py-3 border-l-4 border-transparent hover:text-[#4299e1]"
                             >
                               Left Sidebar
                             </a>
@@ -1288,7 +1302,7 @@
                           <li>
                             <a
                               href="#"
-                              class="flex px-8 py-3 border-l-4 border-transparent hover:text-primarySky"
+                              class="flex px-8 py-3 border-l-4 border-transparent hover:text-[#4299e1]"
                             >
                               Right Sidebar
                             </a>
@@ -1296,7 +1310,7 @@
                           <li>
                             <a
                               href="#"
-                              class="flex px-8 py-3 border-l-4 border-transparent hover:text-primarySky"
+                              class="flex px-8 py-3 border-l-4 border-transparent hover:text-[#4299e1]"
                             >
                               No Sidebar
                             </a>
@@ -1308,7 +1322,7 @@
                           href="#"
                           class="px-8 py-3 border-l-4 border-transparent flex flex-row items-center justify-between group"
                         >
-                          <span class="group-hover:text-primarySky"
+                          <span class="group-hover:text-[#4299e1]"
                             >Single Post</span
                           >
                           <svg
@@ -1316,7 +1330,7 @@
                             xmlns="http://www.w3.org/2000/svg"
                             width="12"
                             height="12"
-                            class="group-hover:fill-primarySky"
+                            class="group-hover:fill-[#4299e1]"
                             viewBox="0 0 20 20"
                           >
                             <title>chevron-down</title>
@@ -1331,7 +1345,7 @@
                           href="#"
                           class="px-8 py-3 border-l-4 border-transparent flex flex-row items-center justify-between group"
                         >
-                          <span class="group-hover:text-primarySky"
+                          <span class="group-hover:text-[#4299e1]"
                             >Navigation</span
                           >
                           <svg
@@ -1339,7 +1353,7 @@
                             xmlns="http://www.w3.org/2000/svg"
                             width="12"
                             height="12"
-                            class="group-hover:fill-primarySky"
+                            class="group-hover:fill-[#4299e1]"
                             viewBox="0 0 20 20"
                           >
                             <title>chevron-down</title>
@@ -1352,7 +1366,7 @@
                       <li>
                         <a
                           href="#"
-                          class="flex px-8 py-3 border-l-4 border-transparent hover:text-primarySky"
+                          class="flex px-8 py-3 border-l-4 border-transparent hover:text-[#4299e1]"
                         >
                           Post Video
                           <span
@@ -1364,7 +1378,7 @@
                       <li>
                         <a
                           href="#"
-                          class="flex px-8 py-3 border-l-4 border-transparent hover:text-primarySky"
+                          class="flex px-8 py-3 border-l-4 border-transparent hover:text-[#4299e1]"
                         >
                           Author Page
                         </a>
@@ -1372,7 +1386,7 @@
                       <li>
                         <a
                           href="#"
-                          class="flex px-8 py-3 border-l-4 border-transparent hover:text-primarySky"
+                          class="flex px-8 py-3 border-l-4 border-transparent hover:text-[#4299e1]"
                         >
                           Error 404
                         </a>
@@ -1380,7 +1394,7 @@
                       <li>
                         <a
                           href="#"
-                          class="flex px-8 py-3 border-l-4 border-transparent hover:text-primarySky"
+                          class="flex px-8 py-3 border-l-4 border-transparent hover:text-[#4299e1]"
                         >
                           Category Page
                         </a>
@@ -1388,7 +1402,7 @@
                       <li>
                         <a
                           href="#"
-                          class="flex px-8 py-3 border-l-4 border-transparent hover:text-primarySky"
+                          class="flex px-8 py-3 border-l-4 border-transparent hover:text-[#4299e1]"
                         >
                           Search Page
                         </a>
@@ -1398,13 +1412,13 @@
                   <li x-data="{dropDown : false}">
                     <a
                       href="#"
-                      class="px-8 py-3 border-l-4 border-transparent hover:border-primarySky flex flex-row items-center justify-between group"
+                      class="px-8 py-3 border-l-4 border-transparent hover:border-[#4299e1] flex flex-row items-center justify-between group"
                       @click="dropDown = !dropDown"
-                      :class="{'!border-primarySky transition-all' : dropDown}"
+                      :class="{'!border-[#4299e1] transition-all' : dropDown}"
                     >
                       <span
-                        class="group-hover:text-primarySky"
-                        :class="{'!text-primarySky transition-all' : dropDown}"
+                        class="group-hover:text-[#4299e1]"
+                        :class="{'!text-[#4299e1] transition-all' : dropDown}"
                         >Categories</span
                       >
                       <svg
@@ -1412,8 +1426,8 @@
                         xmlns="http://www.w3.org/2000/svg"
                         width="12"
                         height="12"
-                        class="group-hover:fill-primarySky"
-                        :class="{'rotate-180 transition-all !fill-primarySky' : dropDown,
+                        class="group-hover:fill-[#4299e1]"
+                        :class="{'rotate-180 transition-all !fill-[#4299e1]' : dropDown,
                                  'rotate-0 transition-all' : !dropDown}"
                         viewBox="0 0 20 20"
                       >
@@ -1427,7 +1441,7 @@
                       <li>
                         <a
                           href="#"
-                          class="flex px-8 py-3 border-l-4 border-transparent hover:text-primarySky"
+                          class="flex px-8 py-3 border-l-4 border-transparent hover:text-[#4299e1]"
                         >
                           Entertainment
                         </a>
@@ -1435,7 +1449,7 @@
                       <li>
                         <a
                           href="#"
-                          class="flex px-8 py-3 border-l-4 border-transparent hover:text-primarySky"
+                          class="flex px-8 py-3 border-l-4 border-transparent hover:text-[#4299e1]"
                         >
                           Lifestyle
                         </a>
@@ -1443,7 +1457,7 @@
                       <li>
                         <a
                           href="#"
-                          class="flex px-8 py-3 border-l-4 border-transparent hover:text-primarySky"
+                          class="flex px-8 py-3 border-l-4 border-transparent hover:text-[#4299e1]"
                         >
                           Travel
                         </a>
@@ -1453,7 +1467,7 @@
                   <li>
                     <a
                       href="#"
-                      class="flex px-8 py-3 border-l-4 border-transparent hover:border-primarySky hover:text-primarySky"
+                      class="flex px-8 py-3 border-l-4 border-transparent hover:border-[#4299e1] hover:text-[#4299e1]"
                     >
                       Lifestyle
                     </a>
@@ -1461,7 +1475,7 @@
                   <li>
                     <a
                       href="#"
-                      class="flex px-8 py-3 border-l-4 border-transparent hover:border-primarySky hover:text-primarySky"
+                      class="flex px-8 py-3 border-l-4 border-transparent hover:border-[#4299e1] hover:text-[#4299e1]"
                     >
                       Travel
                     </a>
@@ -1469,7 +1483,7 @@
                   <li>
                     <a
                       href="#"
-                      class="flex px-8 py-3 border-l-4 border-transparent hover:border-primarySky hover:text-primarySky"
+                      class="flex px-8 py-3 border-l-4 border-transparent hover:border-[#4299e1] hover:text-[#4299e1]"
                     >
                       Contact
                     </a>
@@ -1477,11 +1491,11 @@
                   <li>
                     <a
                       href="#"
-                      class="flex px-8 py-3 border-l-4 border-transparent hover:border-primarySky hover:text-primarySky"
+                      class="flex px-8 py-3 border-l-4 border-transparent hover:border-[#4299e1] hover:text-[#4299e1]"
                     >
                       Purchase
                       <span
-                        class="bg-primarySky text-white ml-2 text-xs py-1 px-2 rounded-full"
+                        class="bg-[#4299e1] text-white ml-2 text-xs py-1 px-2 rounded-full"
                         >$49</span
                       >
                     </a>
@@ -1501,7 +1515,7 @@
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="16"
-                    class="hover:fill-primarySky"
+                    class="hover:fill-[#4299e1]"
                     viewBox="0 0 20 20"
                   >
                     <title>facebook-with-circle</title>
@@ -1519,7 +1533,7 @@
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="16"
-                    class="hover:fill-primarySky"
+                    class="hover:fill-[#4299e1]"
                     viewBox="0 0 20 20"
                   >
                     <title>twitter-with-circle</title>
@@ -1537,7 +1551,7 @@
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="16"
-                    class="hover:fill-primarySky"
+                    class="hover:fill-[#4299e1]"
                     viewBox="0 0 20 20"
                   >
                     <title>instagram-with-circle</title>
@@ -1555,7 +1569,7 @@
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="16"
-                    class="hover:fill-primarySky"
+                    class="hover:fill-[#4299e1]"
                     viewBox="0 0 20 20"
                   >
                     <title>youtube-with-circle</title>
@@ -1573,7 +1587,7 @@
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="16"
-                    class="hover:fill-primarySky"
+                    class="hover:fill-[#4299e1]"
                     viewBox="0 0 20 20"
                   >
                     <title>linkedin-with-circle</title>
@@ -1594,7 +1608,9 @@
         x-show="isModalOpen"
         x-transition.opacity
       >
-        <div class="container max-w-lg lg:max-w-3xl m-auto px-6 font-roboto">
+        <div
+          class="container max-w-lg lg:max-w-3xl m-auto px-6 font-['roboto']"
+        >
           <form class="w-full">
             <input
               type="search"
@@ -1602,7 +1618,7 @@
               id="search"
               placeholder="Search..."
               autocomplete="off"
-              class="block w-full bg-transparent text-white border-b-2 border-white px-0 py-2 text-2xl outline-none border-accent mb-2 focus:border-primarySky"
+              class="block w-full bg-transparent text-white border-b-2 border-white px-0 py-2 text-2xl outline-none border-accent mb-2 focus:border-[#4299e1]"
               x-ref="modalSearchbar"
             />
             <p class="text-sm text-right font-medium text-white/70">
@@ -1679,14 +1695,16 @@
             <div class="flex h-full">
               <div class="flex-1 flex flex-col">
                 <!-- FEATURED -->
-                <div class="text-base text-strong mb-10 font-roboto text-white">
+                <div
+                  class="text-base text-strong mb-10 font-['roboto'] text-white"
+                >
                   <span
-                    class="w-10 h-10 bg-primarySky inline-flex items-center justify-center"
+                    class="w-10 h-10 bg-[#4299e1] inline-flex items-center justify-center"
                     x-show="slide === 'slide1'"
                     >01</span
                   >
                   <span
-                    class="w-10 h-10 bg-primarySky inline-flex items-center justify-center"
+                    class="w-10 h-10 bg-[#4299e1] inline-flex items-center justify-center"
                     x-show="slide === 'slide2'"
                     >02</span
                   >
@@ -1706,7 +1724,7 @@
                   >
                     <!-- META DESCRIPTION -->
                     <div
-                      class="text-xs text-strong mb-4 font-roboto text-white uppercase"
+                      class="text-xs text-strong mb-4 font-['roboto'] text-white uppercase"
                     >
                       Lifestyle
                     </div>
@@ -1719,13 +1737,13 @@
                       </a>
                     </h1>
                     <!-- POST META -->
-                    <div class="text-sm mt-5 text-white/70 font-roboto">
+                    <div class="text-sm mt-5 text-white/70 font-['roboto']">
                       <!-- AUTHOR -->
                       <span
                         class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-white/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
                       >
                         <span>By</span>
-                        <a href="#" class="text-white hover:text-primarySky"
+                        <a href="#" class="text-white hover:text-[#4299e1]"
                           >Elijah Stein</a
                         >
                       </span>
@@ -1746,7 +1764,7 @@
                   >
                     <!-- META DESCRIPTION -->
                     <div
-                      class="text-xs text-strong mb-4 font-roboto text-white uppercase"
+                      class="text-xs text-strong mb-4 font-['roboto'] text-white uppercase"
                     >
                       Travel
                     </div>
@@ -1759,13 +1777,13 @@
                       </a>
                     </h1>
                     <!-- POST META -->
-                    <div class="text-sm mt-5 text-white/70 font-roboto">
+                    <div class="text-sm mt-5 text-white/70 font-['roboto']">
                       <!-- AUTHOR -->
                       <span
                         class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-white/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
                       >
                         <span>By</span>
-                        <a href="#" class="text-white hover:text-primarySky"
+                        <a href="#" class="text-white hover:text-[#4299e1]"
                           >Elijah Stein</a
                         >
                       </span>
@@ -1824,7 +1842,7 @@
                             >Few Facts About Streaming and Music Creation</a
                           >
                         </h3>
-                        <div class="font-roboto text-sm text-white/70">
+                        <div class="font-['roboto'] text-sm text-white/70">
                           April 29, 2019
                         </div>
                       </div>
@@ -1844,7 +1862,7 @@
                             >The Real Reason Why Money Can’t Buy You Freedom</a
                           >
                         </h3>
-                        <div class="font-roboto text-sm text-white/70">
+                        <div class="font-['roboto'] text-sm text-white/70">
                           May 27, 2019
                         </div>
                       </div>
@@ -1865,7 +1883,7 @@
                             Worth</a
                           >
                         </h3>
-                        <div class="font-roboto text-sm text-white/70">
+                        <div class="font-['roboto'] text-sm text-white/70">
                           June 01, 2019
                         </div>
                       </div>
@@ -1886,7 +1904,7 @@
                             Stamina</a
                           >
                         </h3>
-                        <div class="font-roboto text-sm text-white/70">
+                        <div class="font-['roboto'] text-sm text-white/70">
                           May 02, 2019
                         </div>
                       </div>
@@ -1906,7 +1924,7 @@
         <!-- SECTION TITLE -->
         <div class="text-center mb-8">
           <h2 class="text-3xl font-bold mb-0">Popular Posts</h2>
-          <p class="mt-2 mb-0 font-roboto text-black/40">
+          <p class="mt-2 mb-0 font-['roboto'] text-black/40">
             Don't miss to check out our most popular posts
           </p>
         </div>
@@ -2011,7 +2029,7 @@
                     <div class="mb-2">
                       <a
                         href="#"
-                        class="text-primarySky hover:underline uppercase font-roboto text-xs font-medium tracking-wide"
+                        class="text-[#4299e1] hover:underline uppercase font-['roboto'] text-xs font-medium tracking-wide"
                       >
                         Lifestyle
                       </a>
@@ -2026,7 +2044,7 @@
                       </a>
                     </h3>
                     <!-- META -->
-                    <div class="text-sm mt-3.5 text-black/50 font-roboto">
+                    <div class="text-sm mt-3.5 text-black/50 font-['roboto']">
                       <!-- DATE -->
                       <span
                         class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
@@ -2059,7 +2077,7 @@
                     <div class="mb-2">
                       <a
                         href="#"
-                        class="text-primarySky hover:underline uppercase font-roboto text-xs font-medium tracking-wide"
+                        class="text-[#4299e1] hover:underline uppercase font-['roboto'] text-xs font-medium tracking-wide"
                       >
                         Entertainment
                       </a>
@@ -2074,7 +2092,7 @@
                       </a>
                     </h3>
                     <!-- META -->
-                    <div class="text-sm mt-3.5 text-black/50 font-roboto">
+                    <div class="text-sm mt-3.5 text-black/50 font-['roboto']">
                       <!-- DATE -->
                       <span
                         class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
@@ -2107,7 +2125,7 @@
                     <div class="mb-2">
                       <a
                         href="#"
-                        class="text-primarySky hover:underline uppercase font-roboto text-xs font-medium tracking-wide"
+                        class="text-[#4299e1] hover:underline uppercase font-['roboto'] text-xs font-medium tracking-wide"
                       >
                         Entertainment
                       </a>
@@ -2122,7 +2140,7 @@
                       </a>
                     </h3>
                     <!-- META -->
-                    <div class="text-sm mt-3.5 text-black/50 font-roboto">
+                    <div class="text-sm mt-3.5 text-black/50 font-['roboto']">
                       <!-- DATE -->
                       <span
                         class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
@@ -2155,7 +2173,7 @@
                     <div class="mb-2">
                       <a
                         href="#"
-                        class="text-primarySky hover:underline uppercase font-roboto text-xs font-medium tracking-wide"
+                        class="text-[#4299e1] hover:underline uppercase font-['roboto'] text-xs font-medium tracking-wide"
                       >
                         Lifestyle
                       </a>
@@ -2170,7 +2188,7 @@
                       </a>
                     </h3>
                     <!-- META -->
-                    <div class="text-sm mt-3.5 text-black/50 font-roboto">
+                    <div class="text-sm mt-3.5 text-black/50 font-['roboto']">
                       <!-- DATE -->
                       <span
                         class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
@@ -2203,7 +2221,7 @@
                     <div class="mb-2">
                       <a
                         href="#"
-                        class="text-primarySky hover:underline uppercase font-roboto text-xs font-medium tracking-wide"
+                        class="text-[#4299e1] hover:underline uppercase font-['roboto'] text-xs font-medium tracking-wide"
                       >
                         Lifestyle
                       </a>
@@ -2218,7 +2236,7 @@
                       </a>
                     </h3>
                     <!-- META -->
-                    <div class="text-sm mt-3.5 text-black/50 font-roboto">
+                    <div class="text-sm mt-3.5 text-black/50 font-['roboto']">
                       <!-- DATE -->
                       <span
                         class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
@@ -2251,7 +2269,7 @@
                     <div class="mb-2">
                       <a
                         href="#"
-                        class="text-primarySky hover:underline uppercase font-roboto text-xs font-medium tracking-wide"
+                        class="text-[#4299e1] hover:underline uppercase font-['roboto'] text-xs font-medium tracking-wide"
                       >
                         Entertainment
                       </a>
@@ -2266,7 +2284,7 @@
                       </a>
                     </h3>
                     <!-- META -->
-                    <div class="text-sm mt-3.5 text-black/50 font-roboto">
+                    <div class="text-sm mt-3.5 text-black/50 font-['roboto']">
                       <!-- DATE -->
                       <span
                         class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
@@ -2299,7 +2317,7 @@
                     <div class="mb-2">
                       <a
                         href="#"
-                        class="text-primarySky hover:underline uppercase font-roboto text-xs font-medium tracking-wide"
+                        class="text-[#4299e1] hover:underline uppercase font-['roboto'] text-xs font-medium tracking-wide"
                       >
                         Lifestyle
                       </a>
@@ -2314,7 +2332,7 @@
                       </a>
                     </h3>
                     <!-- META -->
-                    <div class="text-sm mt-3.5 text-black/50 font-roboto">
+                    <div class="text-sm mt-3.5 text-black/50 font-['roboto']">
                       <!-- DATE -->
                       <span
                         class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
@@ -2347,7 +2365,7 @@
                     <div class="mb-2">
                       <a
                         href="#"
-                        class="text-primarySky hover:underline uppercase font-roboto text-xs font-medium tracking-wide"
+                        class="text-[#4299e1] hover:underline uppercase font-['roboto'] text-xs font-medium tracking-wide"
                       >
                         Entertainment
                       </a>
@@ -2362,7 +2380,7 @@
                       </a>
                     </h3>
                     <!-- META -->
-                    <div class="text-sm mt-3.5 text-black/50 font-roboto">
+                    <div class="text-sm mt-3.5 text-black/50 font-['roboto']">
                       <!-- DATE -->
                       <span
                         class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
@@ -2395,7 +2413,7 @@
                     <div class="mb-2">
                       <a
                         href="#"
-                        class="text-primarySky hover:underline uppercase font-roboto text-xs font-medium tracking-wide"
+                        class="text-[#4299e1] hover:underline uppercase font-['roboto'] text-xs font-medium tracking-wide"
                       >
                         Lifestyle
                       </a>
@@ -2410,7 +2428,7 @@
                       </a>
                     </h3>
                     <!-- META -->
-                    <div class="text-sm mt-3.5 text-black/50 font-roboto">
+                    <div class="text-sm mt-3.5 text-black/50 font-['roboto']">
                       <!-- DATE -->
                       <span
                         class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
@@ -2443,7 +2461,7 @@
                     <div class="mb-2">
                       <a
                         href="#"
-                        class="text-primarySky hover:underline uppercase font-roboto text-xs font-medium tracking-wide"
+                        class="text-[#4299e1] hover:underline uppercase font-['roboto'] text-xs font-medium tracking-wide"
                       >
                         Entertainment
                       </a>
@@ -2458,7 +2476,7 @@
                       </a>
                     </h3>
                     <!-- META -->
-                    <div class="text-sm mt-3.5 text-black/50 font-roboto">
+                    <div class="text-sm mt-3.5 text-black/50 font-['roboto']">
                       <!-- DATE -->
                       <span
                         class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
@@ -2491,7 +2509,7 @@
                     <div class="mb-2">
                       <a
                         href="#"
-                        class="text-primarySky hover:underline uppercase font-roboto text-xs font-medium tracking-wide"
+                        class="text-[#4299e1] hover:underline uppercase font-['roboto'] text-xs font-medium tracking-wide"
                       >
                         Entertainment
                       </a>
@@ -2506,7 +2524,7 @@
                       </a>
                     </h3>
                     <!-- META -->
-                    <div class="text-sm mt-3.5 text-black/50 font-roboto">
+                    <div class="text-sm mt-3.5 text-black/50 font-['roboto']">
                       <!-- DATE -->
                       <span
                         class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
@@ -2573,7 +2591,7 @@
                         </a>
                         <div class="absolute top-0 right-0 p-4 z-10">
                           <span
-                            class="bg-primarySky text-white text-xs rounded-full font-roboto py-1 font-medium px-3"
+                            class="bg-[#4299e1] text-white text-xs rounded-full font-['roboto'] py-1 font-medium px-3"
                             >Pinned</span
                           >
                         </div>
@@ -2585,7 +2603,7 @@
                           <div class="text-xs mb-2">
                             <a
                               href="#"
-                              class="text-primarySky font-bold font-roboto hover:underline uppercase"
+                              class="text-[#4299e1] font-bold font-['roboto'] hover:underline uppercase"
                               >Lifestyle</a
                             >
                           </div>
@@ -2599,7 +2617,9 @@
                             >
                           </h3>
                           <!-- META -->
-                          <div class="text-sm mt-4 text-black/50 font-roboto">
+                          <div
+                            class="text-sm mt-4 text-black/50 font-['roboto']"
+                          >
                             <!-- DATE -->
                             <span
                               class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
@@ -2611,7 +2631,9 @@
                           </div>
                           <!-- POST BODY -->
                           <div class="mt-4">
-                            <p class="mb-0 font-roboto text-black/60 leading-6">
+                            <p
+                              class="mb-0 font-['roboto'] text-black/60 leading-6"
+                            >
                               Faints contribution fifty specified appearing
                               copyright reveal side third. Supply contributors
                               did incur but no…
@@ -2619,7 +2641,7 @@
                             <p class="mb-0 mt-4">
                               <a
                                 href="#"
-                                class="font-roboto text-sm font-bold hover:text-primarySky uppercase"
+                                class="font-['roboto'] text-sm font-bold hover:text-[#4299e1] uppercase"
                                 >Read more &rarr;</a
                               >
                             </p>
@@ -2643,7 +2665,7 @@
                         </a>
                         <div class="absolute top-0 right-0 p-4 z-10">
                           <span
-                            class="bg-primarySky text-white text-xs rounded-full font-roboto py-1 font-medium px-3"
+                            class="bg-[#4299e1] text-white text-xs rounded-full font-['roboto'] py-1 font-medium px-3"
                             >Pinned</span
                           >
                         </div>
@@ -2655,7 +2677,7 @@
                           <div class="text-xs mb-2">
                             <a
                               href="#"
-                              class="text-primarySky font-bold font-roboto hover:underline uppercase"
+                              class="text-[#4299e1] font-bold font-['roboto'] hover:underline uppercase"
                               >Entertainment
                             </a>
                           </div>
@@ -2668,7 +2690,9 @@
                             >
                           </h3>
                           <!-- META -->
-                          <div class="text-sm mt-4 text-black/50 font-roboto">
+                          <div
+                            class="text-sm mt-4 text-black/50 font-['roboto']"
+                          >
                             <!-- DATE -->
                             <span
                               class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
@@ -2680,14 +2704,16 @@
                           </div>
                           <!-- POST BODY -->
                           <div class="mt-4">
-                            <p class="mb-0 font-roboto text-black/60 leading-6">
+                            <p
+                              class="mb-0 font-['roboto'] text-black/60 leading-6"
+                            >
                               Move posts avoid perhaps. Spiders above see wish
                               comments purposes. Lot reason around no by…
                             </p>
                             <p class="mb-0 mt-4">
                               <a
                                 href="#"
-                                class="font-roboto text-sm font-bold hover:text-primarySky uppercase"
+                                class="font-['roboto'] text-sm font-bold hover:text-[#4299e1] uppercase"
                                 >Read more &rarr;</a
                               >
                             </p>
@@ -2711,7 +2737,7 @@
                         </a>
                         <div class="absolute top-0 right-0 p-4 z-10">
                           <!-- <span
-                            class="bg-primarySky text-white text-xs rounded-full font-roboto py-1 font-medium px-3"
+                            class="bg-[#4299e1] text-white text-xs rounded-full font-['roboto'] py-1 font-medium px-3"
                             >Pinned</span
                           > -->
                         </div>
@@ -2723,7 +2749,7 @@
                           <div class="text-xs mb-2">
                             <a
                               href="#"
-                              class="text-primarySky font-bold font-roboto hover:underline uppercase"
+                              class="text-[#4299e1] font-bold font-['roboto'] hover:underline uppercase"
                               >Lifestyle
                             </a>
                           </div>
@@ -2737,7 +2763,9 @@
                             >
                           </h3>
                           <!-- META -->
-                          <div class="text-sm mt-4 text-black/50 font-roboto">
+                          <div
+                            class="text-sm mt-4 text-black/50 font-['roboto']"
+                          >
                             <!-- DATE -->
                             <span
                               class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
@@ -2749,14 +2777,16 @@
                           </div>
                           <!-- POST BODY -->
                           <div class="mt-4">
-                            <p class="mb-0 font-roboto text-black/60 leading-6">
+                            <p
+                              class="mb-0 font-['roboto'] text-black/60 leading-6"
+                            >
                               Move posts avoid perhaps. Spiders above see wish
                               comments purposes. Lot reason around no by…
                             </p>
                             <p class="mb-0 mt-4">
                               <a
                                 href="#"
-                                class="font-roboto text-sm font-bold hover:text-primarySky uppercase"
+                                class="font-['roboto'] text-sm font-bold hover:text-[#4299e1] uppercase"
                                 >Read more &rarr;</a
                               >
                             </p>
@@ -2780,7 +2810,7 @@
                         </a>
                         <div class="absolute top-0 right-0 p-4 z-10">
                           <!-- <span
-                            class="bg-primarySky text-white text-xs rounded-full font-roboto py-1 font-medium px-3"
+                            class="bg-[#4299e1] text-white text-xs rounded-full font-['roboto'] py-1 font-medium px-3"
                             >Pinned</span
                           > -->
                         </div>
@@ -2792,7 +2822,7 @@
                           <div class="text-xs mb-2">
                             <a
                               href="#"
-                              class="text-primarySky font-bold font-roboto hover:underline uppercase"
+                              class="text-[#4299e1] font-bold font-['roboto'] hover:underline uppercase"
                               >Travel
                             </a>
                           </div>
@@ -2806,7 +2836,9 @@
                             >
                           </h3>
                           <!-- META -->
-                          <div class="text-sm mt-4 text-black/50 font-roboto">
+                          <div
+                            class="text-sm mt-4 text-black/50 font-['roboto']"
+                          >
                             <!-- DATE -->
                             <span
                               class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
@@ -2818,7 +2850,9 @@
                           </div>
                           <!-- POST BODY -->
                           <div class="mt-4">
-                            <p class="mb-0 font-roboto text-black/60 leading-6">
+                            <p
+                              class="mb-0 font-['roboto'] text-black/60 leading-6"
+                            >
                               Help shouted touching causing posts is such
                               specified incite adapt the audio had. Exceptional
                               can’t…
@@ -2826,7 +2860,7 @@
                             <p class="mb-0 mt-4">
                               <a
                                 href="#"
-                                class="font-roboto text-sm font-bold hover:text-primarySky uppercase"
+                                class="font-['roboto'] text-sm font-bold hover:text-[#4299e1] uppercase"
                                 >Read more &rarr;</a
                               >
                             </p>
@@ -2850,7 +2884,7 @@
                         </a>
                         <div class="absolute top-0 right-0 p-4 z-10">
                           <!-- <span
-                            class="bg-primarySky text-white text-xs rounded-full font-roboto py-1 font-medium px-3"
+                            class="bg-[#4299e1] text-white text-xs rounded-full font-['roboto'] py-1 font-medium px-3"
                             >Pinned</span
                           > -->
                         </div>
@@ -2862,7 +2896,7 @@
                           <div class="text-xs mb-2">
                             <a
                               href="#"
-                              class="text-primarySky font-bold font-roboto hover:underline uppercase"
+                              class="text-[#4299e1] font-bold font-['roboto'] hover:underline uppercase"
                               >Lifestyle
                             </a>
                           </div>
@@ -2876,7 +2910,9 @@
                             >
                           </h3>
                           <!-- META -->
-                          <div class="text-sm mt-4 text-black/50 font-roboto">
+                          <div
+                            class="text-sm mt-4 text-black/50 font-['roboto']"
+                          >
                             <!-- DATE -->
                             <span
                               class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
@@ -2888,14 +2924,16 @@
                           </div>
                           <!-- POST BODY -->
                           <div class="mt-4">
-                            <p class="mb-0 font-roboto text-black/60 leading-6">
+                            <p
+                              class="mb-0 font-['roboto'] text-black/60 leading-6"
+                            >
                               Move posts avoid perhaps. Spiders above see wish
                               comments purposes. Lot reason around no by…
                             </p>
                             <p class="mb-0 mt-4">
                               <a
                                 href="#"
-                                class="font-roboto text-sm font-bold hover:text-primarySky uppercase"
+                                class="font-['roboto'] text-sm font-bold hover:text-[#4299e1] uppercase"
                                 >Read more &rarr;</a
                               >
                             </p>
@@ -2919,7 +2957,7 @@
                         </a>
                         <div class="absolute top-0 right-0 p-4 z-10">
                           <!-- <span
-                            class="bg-primarySky text-white text-xs rounded-full font-roboto py-1 font-medium px-3"
+                            class="bg-[#4299e1] text-white text-xs rounded-full font-['roboto'] py-1 font-medium px-3"
                             >Pinned</span
                           > -->
                         </div>
@@ -2931,7 +2969,7 @@
                           <div class="text-xs mb-2">
                             <a
                               href="#"
-                              class="text-primarySky font-bold font-roboto hover:underline uppercase"
+                              class="text-[#4299e1] font-bold font-['roboto'] hover:underline uppercase"
                               >Travel
                             </a>
                           </div>
@@ -2945,7 +2983,9 @@
                             >
                           </h3>
                           <!-- META -->
-                          <div class="text-sm mt-4 text-black/50 font-roboto">
+                          <div
+                            class="text-sm mt-4 text-black/50 font-['roboto']"
+                          >
                             <!-- DATE -->
                             <span
                               class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
@@ -2957,7 +2997,9 @@
                           </div>
                           <!-- POST BODY -->
                           <div class="mt-4">
-                            <p class="mb-0 font-roboto text-black/60 leading-6">
+                            <p
+                              class="mb-0 font-['roboto'] text-black/60 leading-6"
+                            >
                               Help shouted touching causing posts is such
                               specified incite adapt the audio had. Exceptional
                               can’t…
@@ -2965,7 +3007,7 @@
                             <p class="mb-0 mt-4">
                               <a
                                 href="#"
-                                class="font-roboto text-sm font-bold hover:text-primarySky uppercase"
+                                class="font-['roboto'] text-sm font-bold hover:text-[#4299e1] uppercase"
                                 >Read more &rarr;</a
                               >
                             </p>
@@ -2989,7 +3031,7 @@
                         </a>
                         <div class="absolute top-0 right-0 p-4 z-10">
                           <!-- <span
-                            class="bg-primarySky text-white text-xs rounded-full font-roboto py-1 font-medium px-3"
+                            class="bg-[#4299e1] text-white text-xs rounded-full font-['roboto'] py-1 font-medium px-3"
                             >Pinned</span
                           > -->
                         </div>
@@ -3001,7 +3043,7 @@
                           <div class="text-xs mb-2">
                             <a
                               href="#"
-                              class="text-primarySky font-bold font-roboto hover:underline uppercase"
+                              class="text-[#4299e1] font-bold font-['roboto'] hover:underline uppercase"
                               >Travel
                             </a>
                           </div>
@@ -3015,7 +3057,9 @@
                             >
                           </h3>
                           <!-- META -->
-                          <div class="text-sm mt-4 text-black/50 font-roboto">
+                          <div
+                            class="text-sm mt-4 text-black/50 font-['roboto']"
+                          >
                             <!-- DATE -->
                             <span
                               class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
@@ -3027,7 +3071,9 @@
                           </div>
                           <!-- POST BODY -->
                           <div class="mt-4">
-                            <p class="mb-0 font-roboto text-black/60 leading-6">
+                            <p
+                              class="mb-0 font-['roboto'] text-black/60 leading-6"
+                            >
                               Help shouted touching causing posts is such
                               specified incite adapt the audio had. Exceptional
                               can’t…
@@ -3035,7 +3081,7 @@
                             <p class="mb-0 mt-4">
                               <a
                                 href="#"
-                                class="font-roboto text-sm font-bold hover:text-primarySky uppercase"
+                                class="font-['roboto'] text-sm font-bold hover:text-[#4299e1] uppercase"
                                 >Read more &rarr;</a
                               >
                             </p>
@@ -3059,7 +3105,7 @@
                         </a>
                         <div class="absolute top-0 right-0 p-4 z-10">
                           <!-- <span
-                            class="bg-primarySky text-white text-xs rounded-full font-roboto py-1 font-medium px-3"
+                            class="bg-[#4299e1] text-white text-xs rounded-full font-['roboto'] py-1 font-medium px-3"
                             >Pinned</span
                           > -->
                         </div>
@@ -3071,7 +3117,7 @@
                           <div class="text-xs mb-2">
                             <a
                               href="#"
-                              class="text-primarySky font-bold font-roboto hover:underline uppercase"
+                              class="text-[#4299e1] font-bold font-['roboto'] hover:underline uppercase"
                               >Lifestyle
                             </a>
                           </div>
@@ -3085,7 +3131,9 @@
                             >
                           </h3>
                           <!-- META -->
-                          <div class="text-sm mt-4 text-black/50 font-roboto">
+                          <div
+                            class="text-sm mt-4 text-black/50 font-['roboto']"
+                          >
                             <!-- DATE -->
                             <span
                               class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
@@ -3097,14 +3145,16 @@
                           </div>
                           <!-- POST BODY -->
                           <div class="mt-4">
-                            <p class="mb-0 font-roboto text-black/60 leading-6">
+                            <p
+                              class="mb-0 font-['roboto'] text-black/60 leading-6"
+                            >
                               Move posts avoid perhaps. Spiders above see wish
                               comments purposes. Lot reason around no by…
                             </p>
                             <p class="mb-0 mt-4">
                               <a
                                 href="#"
-                                class="font-roboto text-sm font-bold hover:text-primarySky uppercase"
+                                class="font-['roboto'] text-sm font-bold hover:text-[#4299e1] uppercase"
                                 >Read more &rarr;</a
                               >
                             </p>
@@ -3128,7 +3178,7 @@
                         </a>
                         <div class="absolute top-0 right-0 p-4 z-10">
                           <!-- <span
-                            class="bg-primarySky text-white text-xs rounded-full font-roboto py-1 font-medium px-3"
+                            class="bg-[#4299e1] text-white text-xs rounded-full font-['roboto'] py-1 font-medium px-3"
                             >Pinned</span
                           > -->
                         </div>
@@ -3140,7 +3190,7 @@
                           <div class="text-xs mb-2">
                             <a
                               href="#"
-                              class="text-primarySky font-bold font-roboto hover:underline uppercase"
+                              class="text-[#4299e1] font-bold font-['roboto'] hover:underline uppercase"
                               >Lifestyle
                             </a>
                           </div>
@@ -3154,7 +3204,9 @@
                             >
                           </h3>
                           <!-- META -->
-                          <div class="text-sm mt-4 text-black/50 font-roboto">
+                          <div
+                            class="text-sm mt-4 text-black/50 font-['roboto']"
+                          >
                             <!-- DATE -->
                             <span
                               class="after:mx-2 after:inline-block after:h-1 after:w-1 after:bg-black/50 after:rounded-full after:top-1/2 after:-translate-y-1/2"
@@ -3166,14 +3218,16 @@
                           </div>
                           <!-- POST BODY -->
                           <div class="mt-4">
-                            <p class="mb-0 font-roboto text-black/60 leading-6">
+                            <p
+                              class="mb-0 font-['roboto'] text-black/60 leading-6"
+                            >
                               Move posts avoid perhaps. Spiders above see wish
                               comments purposes. Lot reason around no by…
                             </p>
                             <p class="mb-0 mt-4">
                               <a
                                 href="#"
-                                class="font-roboto text-sm font-bold hover:text-primarySky uppercase"
+                                class="font-['roboto'] text-sm font-bold hover:text-[#4299e1] uppercase"
                                 >Read more &rarr;</a
                               >
                             </p>
@@ -3189,22 +3243,22 @@
                 <div class="flex justify-center items-center gap-x-3">
                   <a
                     href="#"
-                    class="inline-flex justify-center items-center text-white bg-primarySky font-roboto font-medium uppercase p-3 w-10 h-10 text-sm"
+                    class="inline-flex justify-center items-center text-white bg-[#4299e1] font-['roboto'] font-medium uppercase p-3 w-10 h-10 text-sm"
                     >1</a
                   >
                   <a
                     href="#"
-                    class="inline-flex justify-center items-center text-black/90 font-roboto font-medium uppercase p-3 w-10 h-10 hover:text-primarySky text-sm"
+                    class="inline-flex justify-center items-center text-black/90 font-['roboto'] font-medium uppercase p-3 w-10 h-10 hover:text-[#4299e1] text-sm"
                     >2</a
                   >
                   <a
                     href="#"
-                    class="inline-flex justify-center items-center text-black/90 font-roboto font-medium uppercase p-3 w-10 h-10 hover:text-primarySky text-sm"
+                    class="inline-flex justify-center items-center text-black/90 font-['roboto'] font-medium uppercase p-3 w-10 h-10 hover:text-[#4299e1] text-sm"
                     >3</a
                   >
                   <a
                     href="#"
-                    class="inline-flex justify-center items-center text-black/90 font-roboto font-medium uppercase p-3 w-20 h-10 hover:text-primarySky text-sm"
+                    class="inline-flex justify-center items-center text-black/90 font-['roboto'] font-medium uppercase p-3 w-20 h-10 hover:text-[#4299e1] text-sm"
                     >next &rarr;</a
                   >
                 </div>
@@ -3301,7 +3355,7 @@
                               >Few Facts About Streaming and Music Creation</a
                             >
                           </h3>
-                          <div class="font-roboto text-sm text-black/70">
+                          <div class="font-['roboto'] text-sm text-black/70">
                             April 29, 2019
                           </div>
                         </div>
@@ -3325,7 +3379,7 @@
                               Freedom</a
                             >
                           </h3>
-                          <div class="font-roboto text-sm text-black/70">
+                          <div class="font-['roboto'] text-sm text-black/70">
                             May 27, 2019
                           </div>
                         </div>
@@ -3349,7 +3403,7 @@
                               Worth</a
                             >
                           </h3>
-                          <div class="font-roboto text-sm text-black/70">
+                          <div class="font-['roboto'] text-sm text-black/70">
                             June 01, 2019
                           </div>
                         </div>
@@ -3373,7 +3427,7 @@
                               Stamina</a
                             >
                           </h3>
-                          <div class="font-roboto text-sm text-black/70">
+                          <div class="font-['roboto'] text-sm text-black/70">
                             May 02, 2019
                           </div>
                         </div>
@@ -3390,12 +3444,12 @@
                   <!-- NEWSLETTER -->
                   <div class="bg-white p-6 md:p-8 mb-8 clearfix">
                     <h3 class="font-bold text-xl mb-5">Newsletter</h3>
-                    <p class="font-roboto mb-4">
+                    <p class="font-['roboto'] mb-4">
                       Subscribe to our newsletter and get our newest updates
                       right on your inbox.
                     </p>
 
-                    <form class="font-roboto">
+                    <form class="font-['roboto']">
                       <input
                         type="email"
                         placeholder="Your email address"
@@ -3410,14 +3464,14 @@
                         />
                         <a
                           href="#"
-                          class="opacity-50 text-sm hover:text-primarySky hover:underline"
+                          class="opacity-50 text-sm hover:text-[#4299e1] hover:underline"
                           >I agree to the terms & conditions</a
                         >
                       </span>
                       <div class="mb-4">
                         <button
                           type="submit"
-                          class="bg-primarySky text-white uppercase text-sm w-full py-3 hover:opacity-70"
+                          class="bg-[#4299e1] text-white uppercase text-sm w-full py-3 hover:opacity-70"
                         >
                           Subscribe
                         </button>
@@ -3443,7 +3497,7 @@
         <!-- SECTION TITLE -->
         <div class="text-center mb-8">
           <h2 class="text-3xl font-bold mb-0">Editor's Pick</h2>
-          <p class="mt-2 mb-0 font-roboto text-black/40">
+          <p class="mt-2 mb-0 font-['roboto'] text-black/40">
             Explore these amazing posts curated by the team
           </p>
         </div>
@@ -3480,7 +3534,7 @@
                     <div>
                       <!-- CATEGORY -->
                       <div
-                        class="text-white text-xs font-bold font-roboto mb-2 pointer-events-auto hover:underline uppercase"
+                        class="text-white text-xs font-bold font-['roboto'] mb-2 pointer-events-auto hover:underline uppercase"
                       >
                         <a href="#">lifestyle </a>
                       </div>
@@ -3494,7 +3548,7 @@
                       </h3>
                       <!-- META -->
                       <div
-                        class="text-sm mt-3 text-white/70 font-roboto pointer-events-none"
+                        class="text-sm mt-3 text-white/70 font-['roboto'] pointer-events-none"
                       >
                         <!-- DATE -->
                         <span
@@ -3537,7 +3591,7 @@
                     <div>
                       <!-- CATEGORY -->
                       <div
-                        class="text-white text-xs font-bold font-roboto mb-2 pointer-events-auto hover:underline uppercase"
+                        class="text-white text-xs font-bold font-['roboto'] mb-2 pointer-events-auto hover:underline uppercase"
                       >
                         <a href="#">Travel</a>
                       </div>
@@ -3552,7 +3606,7 @@
                       </h3>
                       <!-- META -->
                       <div
-                        class="text-sm mt-3 text-white/70 font-roboto pointer-events-none"
+                        class="text-sm mt-3 text-white/70 font-['roboto'] pointer-events-none"
                       >
                         <!-- DATE -->
                         <span
@@ -3595,7 +3649,7 @@
                     <div>
                       <!-- CATEGORY -->
                       <div
-                        class="text-white text-xs font-bold font-roboto mb-2 pointer-events-auto hover:underline uppercase"
+                        class="text-white text-xs font-bold font-['roboto'] mb-2 pointer-events-auto hover:underline uppercase"
                       >
                         <a href="#">lifestyle</a>
                       </div>
@@ -3609,7 +3663,7 @@
                       </h3>
                       <!-- META -->
                       <div
-                        class="text-sm mt-3 text-white/70 font-roboto pointer-events-none"
+                        class="text-sm mt-3 text-white/70 font-['roboto'] pointer-events-none"
                       >
                         <!-- DATE -->
                         <span
@@ -3652,7 +3706,7 @@
                     <div>
                       <!-- CATEGORY -->
                       <div
-                        class="text-white text-xs font-bold font-roboto mb-2 pointer-events-auto hover:underline uppercase"
+                        class="text-white text-xs font-bold font-['roboto'] mb-2 pointer-events-auto hover:underline uppercase"
                       >
                         <a href="#">lifestyle</a>
                       </div>
@@ -3667,7 +3721,7 @@
                       </h3>
                       <!-- META -->
                       <div
-                        class="text-sm mt-3 text-white/70 font-roboto pointer-events-none"
+                        class="text-sm mt-3 text-white/70 font-['roboto'] pointer-events-none"
                       >
                         <!-- DATE -->
                         <span
@@ -3688,7 +3742,7 @@
           <nav class="text-center mt-8 lg:mt-10">
             <a
               href="#"
-              class="font-roboto uppercase inline-block py-3 font-medium text-white bg-primarySky px-8"
+              class="font-['roboto'] uppercase inline-block py-3 font-medium text-white bg-[#4299e1] px-8"
               >View more posts</a
             >
           </nav>
@@ -3697,7 +3751,7 @@
     </section>
     <!-- EDITOR'S PICK SECTION END -->
     <!-- FOOTER START -->
-    <footer class="bg-bgDark relative z-10">
+    <footer class="bg-[#1a1a1c] relative z-10">
       <!-- FOOTER PRIMARY -->
       <div class="py-10 lg:py-16 clearfix">
         <div class="container mx-auto px-6 lg:px-8 xl:px-14">
@@ -3711,7 +3765,7 @@
                   <h1 class="font-bold text-white text-3xl mb-4">
                     <a href="#">Stein</a>
                   </h1>
-                  <p class="font-roboto text-white/70">
+                  <p class="font-['roboto'] text-white/70">
                     About text goes here, you can put a few lines that describe
                     about your site to your visitors.
                   </p>
@@ -3724,7 +3778,7 @@
                           xmlns="http://www.w3.org/2000/svg"
                           width="25"
                           height="25"
-                          class="fill-white hover:fill-primarySky"
+                          class="fill-white hover:fill-[#4299e1]"
                           viewBox="0 0 20 20"
                         >
                           <title>facebook-with-circle</title>
@@ -3742,7 +3796,7 @@
                           xmlns="http://www.w3.org/2000/svg"
                           width="25"
                           height="25"
-                          class="fill-white hover:fill-primarySky"
+                          class="fill-white hover:fill-[#4299e1]"
                           viewBox="0 0 20 20"
                         >
                           <title>twitter-with-circle</title>
@@ -3760,7 +3814,7 @@
                           xmlns="http://www.w3.org/2000/svg"
                           width="25"
                           height="25"
-                          class="fill-white hover:fill-primarySky"
+                          class="fill-white hover:fill-[#4299e1]"
                           viewBox="0 0 20 20"
                         >
                           <title>instagram-with-circle</title>
@@ -3778,7 +3832,7 @@
                           xmlns="http://www.w3.org/2000/svg"
                           width="25"
                           height="25"
-                          class="fill-white hover:fill-primarySky"
+                          class="fill-white hover:fill-[#4299e1]"
                           viewBox="0 0 20 20"
                         >
                           <title>youtube-with-circle</title>
@@ -3796,7 +3850,7 @@
                           xmlns="http://www.w3.org/2000/svg"
                           width="25"
                           height="25"
-                          class="fill-white hover:fill-primarySky"
+                          class="fill-white hover:fill-[#4299e1]"
                           viewBox="0 0 20 20"
                         >
                           <title>linkedin-with-circle</title>
@@ -3829,7 +3883,7 @@
                         >Few Facts About Streaming and Music Creation</a
                       >
                     </h3>
-                    <div class="font-roboto text-sm text-white/70">
+                    <div class="font-['roboto'] text-sm text-white/70">
                       April 29, 2019
                     </div>
                   </div>
@@ -3849,7 +3903,7 @@
                         >The Real Reason Why Money Can’t Buy You Freedom</a
                       >
                     </h3>
-                    <div class="font-roboto text-sm text-white/70">
+                    <div class="font-['roboto'] text-sm text-white/70">
                       May 27, 2019
                     </div>
                   </div>
@@ -3863,52 +3917,52 @@
                 <div class="flex flex-wrap -mb-2">
                   <a
                     href="#"
-                    class="bg-bgLightDark font-roboto hover:opacity-75 font-medium mr-2 mb-2 inline-flex items-center text-white/70 rounded-full py-1 text-sm px-3.5"
+                    class="bg-[#2a2a2c] font-['roboto'] hover:opacity-75 font-medium mr-2 mb-2 inline-flex items-center text-white/70 rounded-full py-1 text-sm px-3.5"
                     >Adventure</a
                   >
                   <a
                     href="#"
-                    class="bg-bgLightDark font-roboto hover:opacity-75 font-medium mr-2 mb-2 inline-flex items-center text-white/70 rounded-full py-1 text-sm px-3.5"
+                    class="bg-[#2a2a2c] font-['roboto'] hover:opacity-75 font-medium mr-2 mb-2 inline-flex items-center text-white/70 rounded-full py-1 text-sm px-3.5"
                     >Advice</a
                   >
                   <a
                     href="#"
-                    class="bg-bgLightDark font-roboto hover:opacity-75 font-medium mr-2 mb-2 inline-flex items-center text-white/70 rounded-full py-1 text-sm px-3.5"
+                    class="bg-[#2a2a2c] font-['roboto'] hover:opacity-75 font-medium mr-2 mb-2 inline-flex items-center text-white/70 rounded-full py-1 text-sm px-3.5"
                     >Creativity</a
                   >
                   <a
                     href="#"
-                    class="bg-bgLightDark font-roboto hover:opacity-75 font-medium mr-2 mb-2 inline-flex items-center text-white/70 rounded-full py-1 text-sm px-3.5"
+                    class="bg-[#2a2a2c] font-['roboto'] hover:opacity-75 font-medium mr-2 mb-2 inline-flex items-center text-white/70 rounded-full py-1 text-sm px-3.5"
                     >Habit</a
                   >
                   <a
                     href="#"
-                    class="bg-bgLightDark font-roboto hover:opacity-75 font-medium mr-2 mb-2 inline-flex items-center text-white/70 rounded-full py-1 text-sm px-3.5"
+                    class="bg-[#2a2a2c] font-['roboto'] hover:opacity-75 font-medium mr-2 mb-2 inline-flex items-center text-white/70 rounded-full py-1 text-sm px-3.5"
                     >Health</a
                   >
                   <a
                     href="#"
-                    class="bg-bgLightDark font-roboto hover:opacity-75 font-medium mr-2 mb-2 inline-flex items-center text-white/70 rounded-full py-1 text-sm px-3.5"
+                    class="bg-[#2a2a2c] font-['roboto'] hover:opacity-75 font-medium mr-2 mb-2 inline-flex items-center text-white/70 rounded-full py-1 text-sm px-3.5"
                     >Movie</a
                   >
                   <a
                     href="#"
-                    class="bg-bgLightDark font-roboto hover:opacity-75 font-medium mr-2 mb-2 inline-flex items-center text-white/70 rounded-full py-1 text-sm px-3.5"
+                    class="bg-[#2a2a2c] font-['roboto'] hover:opacity-75 font-medium mr-2 mb-2 inline-flex items-center text-white/70 rounded-full py-1 text-sm px-3.5"
                     >Music</a
                   >
                   <a
                     href="#"
-                    class="bg-bgLightDark font-roboto hover:opacity-75 font-medium mr-2 mb-2 inline-flex items-center text-white/70 rounded-full py-1 text-sm px-3.5"
+                    class="bg-[#2a2a2c] font-['roboto'] hover:opacity-75 font-medium mr-2 mb-2 inline-flex items-center text-white/70 rounded-full py-1 text-sm px-3.5"
                     >Podcast</a
                   >
                   <a
                     href="#"
-                    class="bg-bgLightDark font-roboto hover:opacity-75 font-medium mr-2 mb-2 inline-flex items-center text-white/70 rounded-full py-1 text-sm px-3.5"
+                    class="bg-[#2a2a2c] font-['roboto'] hover:opacity-75 font-medium mr-2 mb-2 inline-flex items-center text-white/70 rounded-full py-1 text-sm px-3.5"
                     >Streaming</a
                   >
                   <a
                     href="#"
-                    class="bg-bgLightDark font-roboto hover:opacity-75 font-medium mr-2 mb-2 inline-flex items-center text-white/70 rounded-full py-1 text-sm px-3.5"
+                    class="bg-[#2a2a2c] font-['roboto'] hover:opacity-75 font-medium mr-2 mb-2 inline-flex items-center text-white/70 rounded-full py-1 text-sm px-3.5"
                     >World</a
                   >
                 </div>
@@ -3920,28 +3974,28 @@
       <!-- FOOTER SECONDARY -->
       <div class="border-t border-white/5 py-6 md:py-8">
         <div class="container mx-auto px-6 lg:px-8 xl:px-14 flex">
-          <p class="font-roboto text-white/70 flex-1 text-sm">
+          <p class="font-['roboto'] text-white/70 flex-1 text-sm">
             © 2022 Stein. All rights reserved.
           </p>
           <nav class="flex-1 hidden ml-auto lg:block">
-            <ul class="list-reset flex justify-end font-roboto">
+            <ul class="list-reset flex justify-end font-['roboto']">
               <li class="px-4 flex items-center">
-                <a href="#" class="text-sm text-white hover:text-primarySky"
+                <a href="#" class="text-sm text-white hover:text-[#4299e1]"
                   >Disclaimer</a
                 >
               </li>
               <li class="px-4 flex items-center">
-                <a href="#" class="text-sm text-white hover:text-primarySky"
+                <a href="#" class="text-sm text-white hover:text-[#4299e1]"
                   >Terms & Conditions
                 </a>
               </li>
               <li class="px-4 flex items-center">
-                <a href="#" class="text-sm text-white hover:text-primarySky"
+                <a href="#" class="text-sm text-white hover:text-[#4299e1]"
                   >Privacy Policy
                 </a>
               </li>
               <li class="px-4 flex items-center">
-                <a href="#" class="text-sm text-white hover:text-primarySky"
+                <a href="#" class="text-sm text-white hover:text-[#4299e1]"
                   >Community
                 </a>
               </li>
@@ -3954,7 +4008,7 @@
     <!-- BACK TO TOP -->
     <a
       href="#"
-      class="fixed bottom-0 right-0 h-8 w-8 inline-flex items-center justify-center bg-primarySky text-white hover:text-white text-lg leading-none shadow-lg rounded-full hover:no-underline transition-opacity duration-500 ease-in-out hover:opacity-75 mr-4 mb-4 lg:mr-6 lg:mb-6 z-50"
+      class="fixed bottom-0 right-0 h-8 w-8 inline-flex items-center justify-center bg-[#4299e1] text-white hover:text-white text-lg leading-none shadow-lg rounded-full hover:no-underline transition-opacity duration-500 ease-in-out hover:opacity-75 mr-4 mb-4 lg:mr-6 lg:mb-6 z-50"
     >
       <svg
         version="1.1"
